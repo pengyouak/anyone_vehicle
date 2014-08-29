@@ -14,7 +14,6 @@ namespace VehicleEntryEx
     public partial class formKeeper : Form
     {
         WebReference.EnterService _service;
-        bool _isConnected = false;
         DES _des = new DES();
         string _printModel = "";
         string _brand = "";
@@ -134,7 +133,7 @@ namespace VehicleEntryEx
                     registDate = tmpParam[0];
                     batchID = tmpParam[1];
                 }
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                 {
                     ConnectErrorShow(false);
                     return;
@@ -478,7 +477,7 @@ namespace VehicleEntryEx
             }
             catch
             {
-                _isConnected = false;
+                ConfigMethod._isConnected = false;
                 return null;
             }
         }
@@ -511,7 +510,7 @@ namespace VehicleEntryEx
             }
             catch(Exception e) {
                 MessageBox.Show(e.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                _isConnected=false;
+                ConfigMethod._isConnected=false;
                 return "";
             }
         }
@@ -555,7 +554,7 @@ namespace VehicleEntryEx
                     return;
                 if (string.IsNullOrEmpty(cboType.SelectedItem.ToString()))
                     return;
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                     return;
                 //加载小类
                 string sub = _service.ReturnSubClass(cboType.SelectedItem.ToString());
@@ -592,7 +591,7 @@ namespace VehicleEntryEx
                 cboDetail.Items.Clear();
                 if (string.IsNullOrEmpty(cboSub.SelectedItem.ToString()))
                     return;
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                     return;
 
                 //加载明细
@@ -652,7 +651,7 @@ namespace VehicleEntryEx
             {
                 if (string.IsNullOrEmpty(txtShopId.Text))
                     return;
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                     return;
                 string owner = _service.SearchOwner(txtShopId.Text.Trim());
                 if (!string.IsNullOrEmpty(owner))
@@ -690,6 +689,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtWholeWeight.Text = "";
+                txtWholeWeight.Focus();
             }
         }
 
@@ -712,6 +712,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtQuantity.Text = "";
+                txtQuantity.Focus();
             }
         }
 
@@ -723,6 +724,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtDeposit.Text = "";
+                txtDeposit.Focus();
             }
         }
         #endregion
@@ -811,8 +813,8 @@ namespace VehicleEntryEx
 
         private void ConnectErrorShow(bool issuccess)
         {
-            _isConnected = issuccess;
-            if (!_isConnected)
+            ConfigMethod._isConnected = issuccess;
+            if (!ConfigMethod._isConnected)
             {
                 if (InvokeRequired)
                 {

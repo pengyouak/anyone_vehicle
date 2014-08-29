@@ -15,7 +15,6 @@ namespace VehicleEntryEx
     {
         private bool _isChargeEdit=false;
         public bool IsChargeEdit { set { _isChargeEdit = value; } }
-        bool _isConnected = true;
         WebReference.EnterService _service = new WebReference.EnterService();
         public Ticket _ticket = new Ticket();
         public formEdit(Ticket ticket)
@@ -160,6 +159,7 @@ namespace VehicleEntryEx
             txtGrossWeight.Text = ticket.GrossWeight;
             txtQuantity.Text = ticket.Quantity;
             txtDeposit.Text = ticket.Deposit;
+            txtFees.Text = ticket.Fees;
             if (_isChargeEdit)
             {
                 txtShopId.Enabled = false;
@@ -174,129 +174,152 @@ namespace VehicleEntryEx
                 txtGrossWeight.Enabled = false;
                 txtQuantity.Enabled = false;
                 txtDeposit.Enabled = false;
-                txtFees.ReadOnly = false;
+                //txtFees.Enabled = false;
                 txtCharges.ReadOnly = false;
             }
-
-            txtFees.Text = ticket.Fees;
             txtCharges.Text = ticket.Charges;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {           
-            #region 输入校验
-            if(txtShopId.Text==string.Empty)
-            {
-                MessageBox.Show("请输入门店号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (lblOwner.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("没有找到该门店号的经营户名称!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (txtTrafficId.Text == string.Empty)
-            {
-                MessageBox.Show("请输入车船号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            } 
-            if (cboType.SelectedItem == null)
-            {
-                MessageBox.Show("请选择品种!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (cboSubType.SelectedItem == null)
-            {
-                MessageBox.Show("请选择品种小类!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (cboDetail.Visible == true && cboDetail.SelectedItem == null)
-            {
-                MessageBox.Show("请选择品种明细!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (cboBrand.Text == "请选择或输入品牌")
-            {
-                MessageBox.Show("请选择或输入品牌!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (cboOrigin.Text == "请选择或输入产地")
-            {
-                MessageBox.Show("请选择或输入产地!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            //if (txtWholeWeight.Text == string.Empty)
-            //{
-            //    MessageBox.Show("请输入整重!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            //if (txtGrossWeight.Text == string.Empty)
-            //{
-            //    MessageBox.Show("请输入毛重!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            if (txtQuantity.Text == string.Empty)
-            {
-                MessageBox.Show("请输入数量!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            if (cboUnit.SelectedItem==null)
-            {
-                MessageBox.Show("请选择单位!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                return;
-            }
-            //if (txtDeposit.Text == string.Empty)
-            //{
-            //    MessageBox.Show("请输入押金!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            //if (txtFees.Text == string.Empty)
-            //{
-            //    MessageBox.Show("请输入应收费用!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            //if (lblCharges.Text.Trim() == string.Empty)
-            //{
-            //    MessageBox.Show("没有计算出实收金额,请重新填写应收费!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            #endregion
-            _ticket.Quantity = txtQuantity.Text.Trim();
-            _ticket.Charges = txtCharges.Text.Trim();
-            _ticket.Brand = cboBrand.Text;
-            _ticket.Origin = cboOrigin.Text;
-            _ticket.TrafficId = txtTrafficId.Text.Trim();
-            _ticket.WholeWeight = txtWholeWeight.Text.Trim();
-            _ticket.GrossWeight = txtGrossWeight.Text.Trim();
-            _ticket.Deposit = txtDeposit.Text.Trim();
-            _ticket.Fees = txtFees.Text.Trim();
-            _ticket.Charges = txtCharges.Text.Trim();
-            _ticket.Unit = cboUnit.SelectedItem.ToString();
-
-            _ticket.ParentClass = cboType.SelectedItem.ToString();
-            _ticket.SubClass = cboSubType.SelectedItem.ToString();
-            if (cboDetail.Visible)
-                _ticket.Detailed = cboDetail.SelectedItem.ToString();
-            else
-                _ticket.Detailed = "";
+        {
             panel1.Enabled = false;
-            //使用接口更新数据库
             try
             {
-                string tmpType = _ticket.Detailed == string.Empty ? _ticket.SubClass : _ticket.Detailed;
-                string result = _service.ModifyData(_ticket.BatchId, _ticket.ShopId, _ticket.Owner, _ticket.TrafficId, tmpType
-                    ,_ticket.Brand,_ticket.Origin,_ticket.WholeWeight,_ticket.GrossWeight,_ticket.Quantity,_ticket.Unit,_ticket.Deposit);
-                var json = (JObject)JsonConvert.DeserializeObject(result);
-                if (json["status"] != null && json["status"].ToString().Contains("true"))
+                if (_isChargeEdit)//实收费修改
                 {
-                    MessageBox.Show("更新成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
-                    _ticket.QuantityP = json["data"].ToString();
-                    _service.Abort();
-                    _service.Dispose();
-                    Close();
+                    if (txtCharges.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("请填实应收费!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    
+                    bool rr=false;
+                    bool ss=false;
+                    _service.ModifyCharges(_ticket.BatchId, txtCharges.Text.Trim(), out rr, out ss);
+                    if (rr)
+                    {
+                        MessageBox.Show("更新成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                        _ticket.Charges = txtCharges.Text.Trim();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("更新失败!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                    }
                 }
-                else
-                    MessageBox.Show("接口ModifyData异常!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                else//普通修改
+                {
+                    #region 输入校验
+                    if (txtShopId.Text == string.Empty)
+                    {
+                        MessageBox.Show("请输入门店号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (lblOwner.Text.Trim() == string.Empty)
+                    {
+                        MessageBox.Show("没有找到该门店号的经营户名称!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (txtTrafficId.Text == string.Empty)
+                    {
+                        MessageBox.Show("请输入车船号!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboType.SelectedItem == null)
+                    {
+                        MessageBox.Show("请选择品种!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboSubType.SelectedItem == null)
+                    {
+                        MessageBox.Show("请选择品种小类!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboDetail.Visible == true && cboDetail.SelectedItem == null)
+                    {
+                        MessageBox.Show("请选择品种明细!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboBrand.Text == "请选择或输入品牌")
+                    {
+                        MessageBox.Show("请选择或输入品牌!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboOrigin.Text == "请选择或输入产地")
+                    {
+                        MessageBox.Show("请选择或输入产地!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    //if (txtWholeWeight.Text == string.Empty)
+                    //{
+                    //    MessageBox.Show("请输入整重!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //    return;
+                    //}
+                    //if (txtGrossWeight.Text == string.Empty)
+                    //{
+                    //    MessageBox.Show("请输入毛重!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //    return;
+                    //}
+                    if (txtQuantity.Text == string.Empty)
+                    {
+                        MessageBox.Show("请输入数量!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (cboUnit.SelectedItem == null)
+                    {
+                        MessageBox.Show("请选择单位!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (txtDeposit.Text == string.Empty)
+                    {
+                        MessageBox.Show("请输入押金!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    //if (txtFees.Text == string.Empty)
+                    //{
+                    //    MessageBox.Show("请输入应收费用!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //    return;
+                    //}
+
+                    #endregion
+
+                    _ticket.Quantity = txtQuantity.Text.Trim();
+                    _ticket.Charges = txtCharges.Text.Trim();
+                    _ticket.Brand = cboBrand.Text;
+                    _ticket.Origin = cboOrigin.Text;
+                    _ticket.TrafficId = txtTrafficId.Text.Trim();
+                    _ticket.WholeWeight = txtWholeWeight.Text.Trim();
+                    _ticket.GrossWeight = txtGrossWeight.Text.Trim();
+                    _ticket.Deposit = txtDeposit.Text.Trim();
+                    _ticket.Fees = txtFees.Text.Trim();
+
+                    _ticket.Unit = cboUnit.SelectedItem.ToString();
+
+                    _ticket.ParentClass = cboType.SelectedItem.ToString();
+                    _ticket.SubClass = cboSubType.SelectedItem.ToString();
+                    if (cboDetail.Visible)
+                        _ticket.Detailed = cboDetail.SelectedItem.ToString();
+                    else
+                        _ticket.Detailed = "";
+
+                    //使用接口更新数据库
+                    string tmpType = _ticket.Detailed == string.Empty ? _ticket.SubClass : _ticket.Detailed;
+                    string result = _service.ModifyData(_ticket.BatchId, _ticket.ShopId, _ticket.Owner, _ticket.TrafficId, tmpType
+                        , _ticket.Brand, _ticket.Origin, _ticket.WholeWeight, _ticket.GrossWeight, _ticket.Quantity, _ticket.Unit, _ticket.Deposit);
+                    var json = (JObject)JsonConvert.DeserializeObject(result);
+                    if (json["status"] != null && json["status"].ToString().Contains("true"))
+                    {
+                        MessageBox.Show("更新成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                        _ticket.QuantityP = json["RealQuantity"].ToString().Trim('\"');
+                        _ticket.Fees = json["Fees"].ToString().Trim('\"');
+                        _ticket.Charges = json["Charges"].ToString().Trim('\"');
+                        _service.Abort();
+                        _service.Dispose();
+                        Close();
+                    }
+                    else
+                        MessageBox.Show("接口ModifyData异常!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                }
             }
             catch (Exception ex)
             {
@@ -313,6 +336,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtQuantity.Text = "";
+                txtQuantity.Focus();
             }
         }
 
@@ -324,6 +348,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtCharges.Text = "";
+                txtCharges.Focus();
             }
         }
 
@@ -339,7 +364,7 @@ namespace VehicleEntryEx
                     return;
                 if (string.IsNullOrEmpty(cboType.SelectedItem.ToString()))
                     return;
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                     return;
                 //加载小类
                 string sub = _service.ReturnSubClass(cboType.SelectedItem.ToString());
@@ -375,7 +400,7 @@ namespace VehicleEntryEx
                 cboDetail.Items.Clear();
                 if (string.IsNullOrEmpty(cboSubType.SelectedItem.ToString()))
                     return;
-                if (!_isConnected)
+                if (!ConfigMethod._isConnected)
                     return;
 
                 //加载明细
@@ -429,8 +454,8 @@ namespace VehicleEntryEx
         }
         private void ConnectErrorShow(bool issuccess)
         {
-            _isConnected = issuccess;
-            if (!_isConnected)
+            ConfigMethod._isConnected = issuccess;
+            if (!ConfigMethod._isConnected)
             {
                 lblStatus.BackColor = Color.Red;
                 if (_service != null)
@@ -488,6 +513,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtDeposit.Text = "";
+                txtDeposit.Focus();
             }
         }
 
@@ -499,6 +525,7 @@ namespace VehicleEntryEx
             {
                 MessageBox.Show("请输入数值型数据!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 txtFees.Text = "";
+                txtFees.Focus();
             }
         }
     }

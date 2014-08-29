@@ -10,6 +10,7 @@ namespace VehicleEntryEx
 {
     public static class ConfigMethod
     {
+        public static bool _isConnected = false;
         public static MyConfig _config = new MyConfig();
         /// <summary>
         /// 获取配置信息

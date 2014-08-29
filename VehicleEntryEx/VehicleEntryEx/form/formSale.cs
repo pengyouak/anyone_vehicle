@@ -17,7 +17,6 @@ namespace VehicleEntryEx
     {
         BluetoothPrinter btp = new BluetoothPrinter();
         WebReference.EnterService _service;
-        bool _isConnected = false;
         string _printModel = "";
         DES _des = new DES();
 
@@ -90,8 +89,8 @@ namespace VehicleEntryEx
 
         private void ConnectErrorShow(bool issuccess)
         {
-            _isConnected = issuccess;
-            if (!_isConnected)
+            ConfigMethod._isConnected = issuccess;
+            if (!ConfigMethod._isConnected)
             {
                 lblStatus.BackColor = Color.Red;
                 _service.Abort();
@@ -106,7 +105,7 @@ namespace VehicleEntryEx
         {
             lsvDataList.Items.Clear();
             
-            if (!_isConnected)
+            if (!ConfigMethod._isConnected)
             {
                 MessageBox.Show("请重新连接", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
@@ -119,7 +118,7 @@ namespace VehicleEntryEx
                     result = _service.SearchNotChargesByShopId(txtShopId.Text.Trim());
                 else if (txtShopId.Text.Trim() != string.Empty && chkDate.Checked)
                 {
-                    result = _service.SearchNotChargesByShoIdAndTime(txtShopId.Text.Trim(), dtStart.Value.ToString("yyyyMMdd-HH:mm:ss"), dtEnd.Value.ToString("yyyyMMdd-HH:mm:ss"));
+                    result = _service.SearchNotChargesByShopIdAndTime(txtShopId.Text.Trim(), dtStart.Value.ToString("yyyyMMdd-HH:mm:ss"), dtEnd.Value.ToString("yyyyMMdd-HH:mm:ss"));
                 }
                 else
                 {
@@ -360,8 +359,8 @@ namespace VehicleEntryEx
                 item.SubItems[10].Text = edit._ticket.Quantity;
                 item.SubItems[11].Text = edit._ticket.Unit;
                 item.SubItems[12].Text = edit._ticket.Deposit;
-                //item.SubItems[13].Text = edit._ticket.Fees;
-                //item.SubItems[14].Text = edit._ticket.Charges;
+                item.SubItems[13].Text = edit._ticket.Fees;
+                item.SubItems[14].Text = edit._ticket.Charges;
                 item.Tag = edit._ticket;
                 lsvDataList.Refresh();
             };

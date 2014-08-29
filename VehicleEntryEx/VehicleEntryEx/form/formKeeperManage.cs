@@ -18,7 +18,6 @@ namespace VehicleEntryEx
         DES _des = new DES();
         BluetoothPrinter btp = new BluetoothPrinter();
         WebReference.EnterService _service = new VehicleEntryEx.WebReference.EnterService();
-        bool _isConnected = true;
         string _printModel = "";
         public formKeeperManage()
         {
@@ -26,8 +25,8 @@ namespace VehicleEntryEx
         }
         private void ConnectErrorShow(bool issuccess)
         {
-            _isConnected = issuccess;
-            if (!_isConnected)
+            ConfigMethod._isConnected = issuccess;
+            if (!ConfigMethod._isConnected)
             {
                 lblStatus.BackColor = Color.Red;
                 _service.Abort();
@@ -75,7 +74,7 @@ namespace VehicleEntryEx
                 MessageBox.Show("起始日期大于结束日期,请正确输入区间");
                 return;
             }
-            if (!_isConnected)
+            if (!ConfigMethod._isConnected)
             {
                 MessageBox.Show("请重新连接", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;

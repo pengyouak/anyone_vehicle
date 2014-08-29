@@ -76,30 +76,6 @@ namespace VehicleEntryEx.WebReference {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:AddNewBrand", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddNewBrand([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string Type, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string Brand, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
-            object[] results = this.Invoke("AddNewBrand", new object[] {
-                        Type,
-                        Brand});
-            @return = ((bool)(results[0]));
-            returnSpecified = ((bool)(results[1]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginAddNewBrand(string Type, string Brand, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("AddNewBrand", new object[] {
-                        Type,
-                        Brand}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public void EndAddNewBrand(System.IAsyncResult asyncResult, out bool @return, out bool returnSpecified) {
-            object[] results = this.EndInvoke(asyncResult);
-            @return = ((bool)(results[0]));
-            returnSpecified = ((bool)(results[1]));
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:SearchNotChargesByShopId", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
         public string SearchNotChargesByShopId([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string ShopId) {
@@ -145,28 +121,27 @@ namespace VehicleEntryEx.WebReference {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:SearchNotChargesByShoIdAndTime", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public string SearchNotChargesByShoIdAndTime([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string ShopId, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string StartTime, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string EndTime) {
-            object[] results = this.Invoke("SearchNotChargesByShoIdAndTime", new object[] {
-                        ShopId,
-                        StartTime,
-                        EndTime});
-            return ((string)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:AddNewBrand", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddNewBrand([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string Type, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string Brand, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
+            object[] results = this.Invoke("AddNewBrand", new object[] {
+                        Type,
+                        Brand});
+            @return = ((bool)(results[0]));
+            returnSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public System.IAsyncResult BeginSearchNotChargesByShoIdAndTime(string ShopId, string StartTime, string EndTime, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SearchNotChargesByShoIdAndTime", new object[] {
-                        ShopId,
-                        StartTime,
-                        EndTime}, callback, asyncState);
+        public System.IAsyncResult BeginAddNewBrand(string Type, string Brand, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("AddNewBrand", new object[] {
+                        Type,
+                        Brand}, callback, asyncState);
         }
         
         /// <remarks/>
-        public string EndSearchNotChargesByShoIdAndTime(System.IAsyncResult asyncResult) {
+        public void EndAddNewBrand(System.IAsyncResult asyncResult, out bool @return, out bool returnSpecified) {
             object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
+            @return = ((bool)(results[0]));
+            returnSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
@@ -271,6 +246,31 @@ namespace VehicleEntryEx.WebReference {
         
         /// <remarks/>
         public string EndLoginCheck(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:SearchNotChargesByShopIdAndTime", RequestNamespace="http://ws.apache.org/axis2", ResponseNamespace="http://ws.apache.org/axis2", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string SearchNotChargesByShopIdAndTime([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string ShopId, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string StartTime, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)] string EndTime) {
+            object[] results = this.Invoke("SearchNotChargesByShopIdAndTime", new object[] {
+                        ShopId,
+                        StartTime,
+                        EndTime});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSearchNotChargesByShopIdAndTime(string ShopId, string StartTime, string EndTime, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SearchNotChargesByShopIdAndTime", new object[] {
+                        ShopId,
+                        StartTime,
+                        EndTime}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndSearchNotChargesByShopIdAndTime(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((string)(results[0]));
         }

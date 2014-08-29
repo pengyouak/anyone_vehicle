@@ -38,6 +38,8 @@ namespace VehicleEntryEx
                 var json = (JObject)JsonConvert.DeserializeObject(result);
                 if (json["status"] != null && json["status"].ToString().Contains("true"))
                 {
+                    ConfigMethod._isConnected = true;
+                    this.BackColor = Color.Green;
                     switch (json["code"].ToString().Trim('\"'))
                     {
                         case "1":
@@ -83,7 +85,11 @@ namespace VehicleEntryEx
                     MessageBox.Show("接口LoginCheck异常", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 }
             }
-            catch (Exception ex) { MessageBox.Show("接口LoginCheck调用异常\r\n" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1); }
+            catch (Exception ex) { 
+                ConfigMethod._isConnected = false;
+                this.BackColor = Color.Red;
+                MessageBox.Show("接口LoginCheck调用异常\r\n" + ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            }
             finally { panel1.Enabled = true; }
         }
 
@@ -98,6 +104,8 @@ namespace VehicleEntryEx
                 if (conStr.Equals("A-A"))
                 {
                     this.Text = "车辆入场登记";
+                    ConfigMethod._isConnected = true;
+                    this.BackColor = Color.Green;
                 }
                 else
                 {
@@ -106,6 +114,8 @@ namespace VehicleEntryEx
             }
             catch (Exception ee)
             {
+                ConfigMethod._isConnected = false;
+                this.BackColor = Color.Red;
                 MessageBox.Show("服务器连接失败!\r\n"+ee.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
