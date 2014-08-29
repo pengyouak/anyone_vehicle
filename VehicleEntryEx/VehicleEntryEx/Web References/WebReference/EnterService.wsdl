@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://ws.apache.org/axis2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ws.apache.org/axis2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://ws.apache.org/axis2">
+      <xs:element name="TestConnection">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TestConnectionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnParentClass">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnParentClassResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnSubClass">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ParentClass" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnSubClassResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnDetailedList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SubClass" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnDetailedListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TraversalOrigin">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TraversalOriginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TraversalUnit">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="TraversalUnitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ModifyCharges">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BatchId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Charges" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ModifyChargesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateChargesStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BatchId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateChargesStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByShoIdAndTime">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ShopId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByShoIdAndTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchOwner">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ShopId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchOwnerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnBrand">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReturnBrandResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckBrand">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckBrandResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddNewBrand">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddNewBrandResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckOrigin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckOriginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddNewOrigin">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddNewOriginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsertData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="RegistDate" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BatchId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ShopId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TrafficId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="WholeWeight" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Deposit" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InsertDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BatchId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DeleteDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ModifyData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BatchId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ShopId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Owner" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="TrafficId" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Brand" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="WholeWeight" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="GrossWeight" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Deposit" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ModifyDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginCheck">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PassWord" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="LoginCheckResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRegistDateAndBatchId">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRegistDateAndBatchIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByShopId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ShopId" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByShopIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByTime">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchNotChargesByTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ModifyDataRequest">
+    <wsdl:part name="parameters" element="ns:ModifyData" />
+  </wsdl:message>
+  <wsdl:message name="ModifyDataResponse">
+    <wsdl:part name="parameters" element="ns:ModifyDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewBrandRequest">
+    <wsdl:part name="parameters" element="ns:AddNewBrand" />
+  </wsdl:message>
+  <wsdl:message name="AddNewBrandResponse">
+    <wsdl:part name="parameters" element="ns:AddNewBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByShopIdRequest">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByShopId" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByShopIdResponse">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByShopIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyChargesRequest">
+    <wsdl:part name="parameters" element="ns:ModifyCharges" />
+  </wsdl:message>
+  <wsdl:message name="ModifyChargesResponse">
+    <wsdl:part name="parameters" element="ns:ModifyChargesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByShoIdAndTimeRequest">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByShoIdAndTime" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByShoIdAndTimeResponse">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByShoIdAndTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchOwnerRequest">
+    <wsdl:part name="parameters" element="ns:SearchOwner" />
+  </wsdl:message>
+  <wsdl:message name="SearchOwnerResponse">
+    <wsdl:part name="parameters" element="ns:SearchOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewOriginRequest">
+    <wsdl:part name="parameters" element="ns:AddNewOrigin" />
+  </wsdl:message>
+  <wsdl:message name="AddNewOriginResponse">
+    <wsdl:part name="parameters" element="ns:AddNewOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnBrandRequest">
+    <wsdl:part name="parameters" element="ns:ReturnBrand" />
+  </wsdl:message>
+  <wsdl:message name="ReturnBrandResponse">
+    <wsdl:part name="parameters" element="ns:ReturnBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnParentClassRequest">
+    <wsdl:part name="parameters" element="ns:ReturnParentClass" />
+  </wsdl:message>
+  <wsdl:message name="ReturnParentClassResponse">
+    <wsdl:part name="parameters" element="ns:ReturnParentClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckRequest">
+    <wsdl:part name="parameters" element="ns:LoginCheck" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckResponse">
+    <wsdl:part name="parameters" element="ns:LoginCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDataRequest">
+    <wsdl:part name="parameters" element="ns:DeleteData" />
+  </wsdl:message>
+  <wsdl:message name="DeleteDataResponse">
+    <wsdl:part name="parameters" element="ns:DeleteDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateRegistDateAndBatchIdRequest">
+    <wsdl:part name="parameters" element="ns:CreateRegistDateAndBatchId" />
+  </wsdl:message>
+  <wsdl:message name="CreateRegistDateAndBatchIdResponse">
+    <wsdl:part name="parameters" element="ns:CreateRegistDateAndBatchIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckOriginRequest">
+    <wsdl:part name="parameters" element="ns:CheckOrigin" />
+  </wsdl:message>
+  <wsdl:message name="CheckOriginResponse">
+    <wsdl:part name="parameters" element="ns:CheckOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchDataRequest">
+    <wsdl:part name="parameters" element="ns:SearchData" />
+  </wsdl:message>
+  <wsdl:message name="SearchDataResponse">
+    <wsdl:part name="parameters" element="ns:SearchDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestConnectionRequest">
+    <wsdl:part name="parameters" element="ns:TestConnection" />
+  </wsdl:message>
+  <wsdl:message name="TestConnectionResponse">
+    <wsdl:part name="parameters" element="ns:TestConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraversalUnitRequest">
+    <wsdl:part name="parameters" element="ns:TraversalUnit" />
+  </wsdl:message>
+  <wsdl:message name="TraversalUnitResponse">
+    <wsdl:part name="parameters" element="ns:TraversalUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnSubClassRequest">
+    <wsdl:part name="parameters" element="ns:ReturnSubClass" />
+  </wsdl:message>
+  <wsdl:message name="ReturnSubClassResponse">
+    <wsdl:part name="parameters" element="ns:ReturnSubClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertDataRequest">
+    <wsdl:part name="parameters" element="ns:InsertData" />
+  </wsdl:message>
+  <wsdl:message name="InsertDataResponse">
+    <wsdl:part name="parameters" element="ns:InsertDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateChargesStatusRequest">
+    <wsdl:part name="parameters" element="ns:UpdateChargesStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateChargesStatusResponse">
+    <wsdl:part name="parameters" element="ns:UpdateChargesStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByTimeRequest">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByTime" />
+  </wsdl:message>
+  <wsdl:message name="SearchNotChargesByTimeResponse">
+    <wsdl:part name="parameters" element="ns:SearchNotChargesByTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraversalOriginRequest">
+    <wsdl:part name="parameters" element="ns:TraversalOrigin" />
+  </wsdl:message>
+  <wsdl:message name="TraversalOriginResponse">
+    <wsdl:part name="parameters" element="ns:TraversalOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDetailedListRequest">
+    <wsdl:part name="parameters" element="ns:ReturnDetailedList" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDetailedListResponse">
+    <wsdl:part name="parameters" element="ns:ReturnDetailedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckBrandRequest">
+    <wsdl:part name="parameters" element="ns:CheckBrand" />
+  </wsdl:message>
+  <wsdl:message name="CheckBrandResponse">
+    <wsdl:part name="parameters" element="ns:CheckBrandResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EnterServicePortType">
+    <wsdl:operation name="ModifyData">
+      <wsdl:input wsaw:Action="urn:ModifyData" message="ns:ModifyDataRequest" />
+      <wsdl:output wsaw:Action="urn:ModifyDataResponse" message="ns:ModifyDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <wsdl:input wsaw:Action="urn:AddNewBrand" message="ns:AddNewBrandRequest" />
+      <wsdl:output wsaw:Action="urn:AddNewBrandResponse" message="ns:AddNewBrandResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShopId">
+      <wsdl:input wsaw:Action="urn:SearchNotChargesByShopId" message="ns:SearchNotChargesByShopIdRequest" />
+      <wsdl:output wsaw:Action="urn:SearchNotChargesByShopIdResponse" message="ns:SearchNotChargesByShopIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCharges">
+      <wsdl:input wsaw:Action="urn:ModifyCharges" message="ns:ModifyChargesRequest" />
+      <wsdl:output wsaw:Action="urn:ModifyChargesResponse" message="ns:ModifyChargesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShoIdAndTime">
+      <wsdl:input wsaw:Action="urn:SearchNotChargesByShoIdAndTime" message="ns:SearchNotChargesByShoIdAndTimeRequest" />
+      <wsdl:output wsaw:Action="urn:SearchNotChargesByShoIdAndTimeResponse" message="ns:SearchNotChargesByShoIdAndTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchOwner">
+      <wsdl:input wsaw:Action="urn:SearchOwner" message="ns:SearchOwnerRequest" />
+      <wsdl:output wsaw:Action="urn:SearchOwnerResponse" message="ns:SearchOwnerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrigin">
+      <wsdl:input wsaw:Action="urn:AddNewOrigin" message="ns:AddNewOriginRequest" />
+      <wsdl:output wsaw:Action="urn:AddNewOriginResponse" message="ns:AddNewOriginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBrand">
+      <wsdl:input wsaw:Action="urn:ReturnBrand" message="ns:ReturnBrandRequest" />
+      <wsdl:output wsaw:Action="urn:ReturnBrandResponse" message="ns:ReturnBrandResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnParentClass">
+      <wsdl:input wsaw:Action="urn:ReturnParentClass" message="ns:ReturnParentClassRequest" />
+      <wsdl:output wsaw:Action="urn:ReturnParentClassResponse" message="ns:ReturnParentClassResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <wsdl:input wsaw:Action="urn:LoginCheck" message="ns:LoginCheckRequest" />
+      <wsdl:output wsaw:Action="urn:LoginCheckResponse" message="ns:LoginCheckResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <wsdl:input wsaw:Action="urn:DeleteData" message="ns:DeleteDataRequest" />
+      <wsdl:output wsaw:Action="urn:DeleteDataResponse" message="ns:DeleteDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegistDateAndBatchId">
+      <wsdl:input wsaw:Action="urn:CreateRegistDateAndBatchId" message="ns:CreateRegistDateAndBatchIdRequest" />
+      <wsdl:output wsaw:Action="urn:CreateRegistDateAndBatchIdResponse" message="ns:CreateRegistDateAndBatchIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrigin">
+      <wsdl:input wsaw:Action="urn:CheckOrigin" message="ns:CheckOriginRequest" />
+      <wsdl:output wsaw:Action="urn:CheckOriginResponse" message="ns:CheckOriginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <wsdl:input wsaw:Action="urn:SearchData" message="ns:SearchDataRequest" />
+      <wsdl:output wsaw:Action="urn:SearchDataResponse" message="ns:SearchDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="TestConnection">
+      <wsdl:input wsaw:Action="urn:TestConnection" message="ns:TestConnectionRequest" />
+      <wsdl:output wsaw:Action="urn:TestConnectionResponse" message="ns:TestConnectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="TraversalUnit">
+      <wsdl:input wsaw:Action="urn:TraversalUnit" message="ns:TraversalUnitRequest" />
+      <wsdl:output wsaw:Action="urn:TraversalUnitResponse" message="ns:TraversalUnitResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSubClass">
+      <wsdl:input wsaw:Action="urn:ReturnSubClass" message="ns:ReturnSubClassRequest" />
+      <wsdl:output wsaw:Action="urn:ReturnSubClassResponse" message="ns:ReturnSubClassResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertData">
+      <wsdl:input wsaw:Action="urn:InsertData" message="ns:InsertDataRequest" />
+      <wsdl:output wsaw:Action="urn:InsertDataResponse" message="ns:InsertDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChargesStatus">
+      <wsdl:input wsaw:Action="urn:UpdateChargesStatus" message="ns:UpdateChargesStatusRequest" />
+      <wsdl:output wsaw:Action="urn:UpdateChargesStatusResponse" message="ns:UpdateChargesStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByTime">
+      <wsdl:input wsaw:Action="urn:SearchNotChargesByTime" message="ns:SearchNotChargesByTimeRequest" />
+      <wsdl:output wsaw:Action="urn:SearchNotChargesByTimeResponse" message="ns:SearchNotChargesByTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="TraversalOrigin">
+      <wsdl:input wsaw:Action="urn:TraversalOrigin" message="ns:TraversalOriginRequest" />
+      <wsdl:output wsaw:Action="urn:TraversalOriginResponse" message="ns:TraversalOriginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDetailedList">
+      <wsdl:input wsaw:Action="urn:ReturnDetailedList" message="ns:ReturnDetailedListRequest" />
+      <wsdl:output wsaw:Action="urn:ReturnDetailedListResponse" message="ns:ReturnDetailedListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckBrand">
+      <wsdl:input wsaw:Action="urn:CheckBrand" message="ns:CheckBrandRequest" />
+      <wsdl:output wsaw:Action="urn:CheckBrandResponse" message="ns:CheckBrandResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnterServiceSoap11Binding" type="ns:EnterServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ModifyData">
+      <soap:operation soapAction="urn:ModifyData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <soap:operation soapAction="urn:AddNewBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShopId">
+      <soap:operation soapAction="urn:SearchNotChargesByShopId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCharges">
+      <soap:operation soapAction="urn:ModifyCharges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShoIdAndTime">
+      <soap:operation soapAction="urn:SearchNotChargesByShoIdAndTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOwner">
+      <soap:operation soapAction="urn:SearchOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrigin">
+      <soap:operation soapAction="urn:AddNewOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBrand">
+      <soap:operation soapAction="urn:ReturnBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnParentClass">
+      <soap:operation soapAction="urn:ReturnParentClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <soap:operation soapAction="urn:LoginCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <soap:operation soapAction="urn:DeleteData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegistDateAndBatchId">
+      <soap:operation soapAction="urn:CreateRegistDateAndBatchId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrigin">
+      <soap:operation soapAction="urn:CheckOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <soap:operation soapAction="urn:SearchData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestConnection">
+      <soap:operation soapAction="urn:TestConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalUnit">
+      <soap:operation soapAction="urn:TraversalUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSubClass">
+      <soap:operation soapAction="urn:ReturnSubClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertData">
+      <soap:operation soapAction="urn:InsertData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChargesStatus">
+      <soap:operation soapAction="urn:UpdateChargesStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalOrigin">
+      <soap:operation soapAction="urn:TraversalOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByTime">
+      <soap:operation soapAction="urn:SearchNotChargesByTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDetailedList">
+      <soap:operation soapAction="urn:ReturnDetailedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBrand">
+      <soap:operation soapAction="urn:CheckBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EnterServiceSoap12Binding" type="ns:EnterServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ModifyData">
+      <soap12:operation soapAction="urn:ModifyData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <soap12:operation soapAction="urn:AddNewBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShopId">
+      <soap12:operation soapAction="urn:SearchNotChargesByShopId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCharges">
+      <soap12:operation soapAction="urn:ModifyCharges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShoIdAndTime">
+      <soap12:operation soapAction="urn:SearchNotChargesByShoIdAndTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOwner">
+      <soap12:operation soapAction="urn:SearchOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrigin">
+      <soap12:operation soapAction="urn:AddNewOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBrand">
+      <soap12:operation soapAction="urn:ReturnBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnParentClass">
+      <soap12:operation soapAction="urn:ReturnParentClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <soap12:operation soapAction="urn:LoginCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <soap12:operation soapAction="urn:DeleteData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegistDateAndBatchId">
+      <soap12:operation soapAction="urn:CreateRegistDateAndBatchId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrigin">
+      <soap12:operation soapAction="urn:CheckOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <soap12:operation soapAction="urn:SearchData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestConnection">
+      <soap12:operation soapAction="urn:TestConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalUnit">
+      <soap12:operation soapAction="urn:TraversalUnit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSubClass">
+      <soap12:operation soapAction="urn:ReturnSubClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertData">
+      <soap12:operation soapAction="urn:InsertData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChargesStatus">
+      <soap12:operation soapAction="urn:UpdateChargesStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalOrigin">
+      <soap12:operation soapAction="urn:TraversalOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByTime">
+      <soap12:operation soapAction="urn:SearchNotChargesByTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDetailedList">
+      <soap12:operation soapAction="urn:ReturnDetailedList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBrand">
+      <soap12:operation soapAction="urn:CheckBrand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EnterServiceHttpBinding" type="ns:EnterServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ModifyData">
+      <http:operation location="ModifyData" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewBrand">
+      <http:operation location="AddNewBrand" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShopId">
+      <http:operation location="SearchNotChargesByShopId" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCharges">
+      <http:operation location="ModifyCharges" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByShoIdAndTime">
+      <http:operation location="SearchNotChargesByShoIdAndTime" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchOwner">
+      <http:operation location="SearchOwner" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewOrigin">
+      <http:operation location="AddNewOrigin" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBrand">
+      <http:operation location="ReturnBrand" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnParentClass">
+      <http:operation location="ReturnParentClass" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <http:operation location="LoginCheck" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteData">
+      <http:operation location="DeleteData" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegistDateAndBatchId">
+      <http:operation location="CreateRegistDateAndBatchId" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOrigin">
+      <http:operation location="CheckOrigin" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchData">
+      <http:operation location="SearchData" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestConnection">
+      <http:operation location="TestConnection" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalUnit">
+      <http:operation location="TraversalUnit" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnSubClass">
+      <http:operation location="ReturnSubClass" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertData">
+      <http:operation location="InsertData" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChargesStatus">
+      <http:operation location="UpdateChargesStatus" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraversalOrigin">
+      <http:operation location="TraversalOrigin" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchNotChargesByTime">
+      <http:operation location="SearchNotChargesByTime" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDetailedList">
+      <http:operation location="ReturnDetailedList" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckBrand">
+      <http:operation location="CheckBrand" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnterService">
+    <wsdl:port name="EnterServiceHttpSoap11Endpoint" binding="ns:EnterServiceSoap11Binding">
+      <soap:address location="http://115.236.0.69:8680/axis2/services/EnterService.EnterServiceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="EnterServiceHttpSoap12Endpoint" binding="ns:EnterServiceSoap12Binding">
+      <soap12:address location="http://115.236.0.69:8680/axis2/services/EnterService.EnterServiceHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="EnterServiceHttpEndpoint" binding="ns:EnterServiceHttpBinding">
+      <http:address location="http://115.236.0.69:8680/axis2/services/EnterService.EnterServiceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

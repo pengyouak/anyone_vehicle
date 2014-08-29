@@ -1,0 +1,16 @@
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\bin\Debug\modelSale.prn
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\bin\Debug\modelKeeper.prn
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\bin\Debug\VehicleEntryEx.exe
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\bin\Debug\VehicleEntryEx.pdb
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\ResolveAssemblyReference.cache
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formKeeper.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formEdit.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formKeeperManage.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formLogin.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formRoleManagement.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formRePrint.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formSale.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.Properties.Resources.resources
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.csproj.GenerateResource.Cache
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.exe
+G:\VehicleEntryEx\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.pdb
