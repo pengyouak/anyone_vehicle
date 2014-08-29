@@ -281,6 +281,7 @@ namespace VehicleEntryEx
                     //    return;
                     //}
 
+                    ThreadCheckField();
                     #endregion
 
                     _ticket.Quantity = txtQuantity.Text.Trim();
@@ -326,6 +327,61 @@ namespace VehicleEntryEx
                 MessageBox.Show("接口ModifyData调用异常!\r\n"+ex.Message);
             }
             finally { panel1.Enabled = true; }
+        }
+        /// <summary>
+        /// 使用线程异步检查字段
+        /// </summary>
+        private void ThreadCheckField()
+        {
+            AddNewBrand();
+            AddNewOrigin();
+        }
+
+        /// <summary>
+        /// 检查添加新的产地
+        /// </summary> 
+        /// <param name="origin"></param>
+        private void AddNewOrigin()
+        {
+            try
+            {
+                bool rr = false;
+                bool ss = false;
+                if (!cboOrigin.Items.Contains(cboOrigin.Text))
+                {
+                    cboOrigin.Items.Add(cboOrigin.Text);
+                    _service.CheckOrigin(cboOrigin.Text, out rr, out ss);
+                    if (!rr)
+                        _service.AddNewOrigin(cboOrigin.Text, out rr, out ss);
+                }
+            }
+            catch
+            {
+                ConnectErrorShow(false);
+            }
+        }
+
+        /// <summary>
+        /// 检查添加新的品牌
+        /// </summary>
+        private void AddNewBrand()
+        {
+            try
+            {
+                bool rr = false;
+                bool ss = false;
+                if (!cboBrand.Items.Contains(cboBrand.Text))
+                {
+                    cboBrand.Items.Add(cboBrand.Text);
+                    _service.CheckBrand(cboSubType.Text, cboBrand.Text, out rr, out ss);
+                    if (!rr)
+                        _service.AddNewBrand(cboSubType.Text, cboBrand.Text, out rr, out ss);
+                }
+            }
+            catch
+            {
+                ConnectErrorShow(false);
+            }
         }
 
         private void txtQuantity_LostFocus(object sender, EventArgs e)
