@@ -44,6 +44,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnPrint.Location = new System.Drawing.Point(157, 236);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(80, 24);
@@ -53,6 +54,7 @@
             // 
             // btnLoad
             // 
+            this.btnLoad.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnLoad.Location = new System.Drawing.Point(71, 236);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(80, 24);

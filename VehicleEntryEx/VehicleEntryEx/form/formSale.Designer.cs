@@ -188,6 +188,7 @@
             // 
             // btnChargeEdit
             // 
+            this.btnChargeEdit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnChargeEdit.Location = new System.Drawing.Point(164, 235);
             this.btnChargeEdit.Name = "btnChargeEdit";
             this.btnChargeEdit.Size = new System.Drawing.Size(62, 22);
@@ -197,6 +198,7 @@
             // 
             // btnDel
             // 
+            this.btnDel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnDel.Location = new System.Drawing.Point(59, 235);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(51, 22);
@@ -206,6 +208,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnEdit.Location = new System.Drawing.Point(112, 235);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(51, 22);
@@ -314,6 +317,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnSearch.Location = new System.Drawing.Point(156, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(70, 22);
@@ -330,6 +334,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnPrint.Location = new System.Drawing.Point(7, 235);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(51, 22);

@@ -146,7 +146,7 @@
             this.txtDeposit.MaxLength = 10;
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(62, 21);
-            this.txtDeposit.TabIndex = 9;
+            this.txtDeposit.TabIndex = 13;
             this.txtDeposit.LostFocus += new System.EventHandler(this.txtDeposit_LostFocus);
             // 
             // label4
@@ -170,7 +170,7 @@
             this.txtFees.Name = "txtFees";
             this.txtFees.ReadOnly = true;
             this.txtFees.Size = new System.Drawing.Size(62, 21);
-            this.txtFees.TabIndex = 10;
+            this.txtFees.TabIndex = 14;
             this.txtFees.LostFocus += new System.EventHandler(this.txtFees_LostFocus);
             // 
             // label12
@@ -219,10 +219,11 @@
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnSave.Location = new System.Drawing.Point(132, 234);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 22);
-            this.btnSave.TabIndex = 13;
+            this.btnSave.TabIndex = 16;
             this.btnSave.Text = "保  存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -240,7 +241,7 @@
             this.txtCharges.Name = "txtCharges";
             this.txtCharges.ReadOnly = true;
             this.txtCharges.Size = new System.Drawing.Size(62, 21);
-            this.txtCharges.TabIndex = 30;
+            this.txtCharges.TabIndex = 15;
             this.txtCharges.LostFocus += new System.EventHandler(this.txtCharges_LostFocus);
             // 
             // panel1
@@ -282,14 +283,14 @@
             this.cboUnit.Location = new System.Drawing.Point(54, 231);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(64, 22);
-            this.cboUnit.TabIndex = 50;
+            this.cboUnit.TabIndex = 12;
             // 
             // cboDetail
             // 
             this.cboDetail.Location = new System.Drawing.Point(54, 78);
             this.cboDetail.Name = "cboDetail";
             this.cboDetail.Size = new System.Drawing.Size(173, 22);
-            this.cboDetail.TabIndex = 49;
+            this.cboDetail.TabIndex = 4;
             this.cboDetail.Visible = false;
             // 
             // cboOrigin
@@ -298,7 +299,7 @@
             this.cboOrigin.Location = new System.Drawing.Point(54, 130);
             this.cboOrigin.Name = "cboOrigin";
             this.cboOrigin.Size = new System.Drawing.Size(173, 22);
-            this.cboOrigin.TabIndex = 48;
+            this.cboOrigin.TabIndex = 6;
             this.cboOrigin.Text = "请选择或输入产地";
             this.cboOrigin.LostFocus += new System.EventHandler(this.cboOrigin_LostFocus);
             this.cboOrigin.GotFocus += new System.EventHandler(this.cboOrigin_GotFocus);
@@ -309,7 +310,7 @@
             this.cboBrand.Location = new System.Drawing.Point(54, 104);
             this.cboBrand.Name = "cboBrand";
             this.cboBrand.Size = new System.Drawing.Size(173, 22);
-            this.cboBrand.TabIndex = 47;
+            this.cboBrand.TabIndex = 5;
             this.cboBrand.Text = "请选择或输入品牌";
             this.cboBrand.LostFocus += new System.EventHandler(this.cboBrand_LostFocus);
             this.cboBrand.GotFocus += new System.EventHandler(this.cboBrand_GotFocus);
@@ -319,7 +320,7 @@
             this.cboSubType.Location = new System.Drawing.Point(120, 52);
             this.cboSubType.Name = "cboSubType";
             this.cboSubType.Size = new System.Drawing.Size(107, 22);
-            this.cboSubType.TabIndex = 46;
+            this.cboSubType.TabIndex = 3;
             this.cboSubType.SelectedIndexChanged += new System.EventHandler(this.cboSubType_SelectedIndexChanged);
             // 
             // cboType
@@ -327,7 +328,7 @@
             this.cboType.Location = new System.Drawing.Point(54, 52);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(64, 22);
-            this.cboType.TabIndex = 45;
+            this.cboType.TabIndex = 2;
             this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // formEdit

@@ -74,10 +74,11 @@
             // 
             // btnDel
             // 
+            this.btnDel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnDel.Location = new System.Drawing.Point(119, 231);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(49, 22);
-            this.btnDel.TabIndex = 63;
+            this.btnDel.TabIndex = 4;
             this.btnDel.Text = "删  除";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
@@ -102,7 +103,7 @@
             this.dtEnd.Location = new System.Drawing.Point(73, 31);
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(153, 22);
-            this.dtEnd.TabIndex = 59;
+            this.dtEnd.TabIndex = 1;
             // 
             // dtStart
             // 
@@ -111,14 +112,15 @@
             this.dtStart.Location = new System.Drawing.Point(73, 3);
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(153, 22);
-            this.dtStart.TabIndex = 58;
+            this.dtStart.TabIndex = 0;
             // 
             // btnEdit
             // 
+            this.btnEdit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnEdit.Location = new System.Drawing.Point(63, 231);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(49, 22);
-            this.btnEdit.TabIndex = 57;
+            this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "编  辑";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -211,19 +213,21 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnSearch.Location = new System.Drawing.Point(175, 231);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(49, 22);
-            this.btnSearch.TabIndex = 46;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "查询";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnPrint
             // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnPrint.Location = new System.Drawing.Point(7, 231);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(49, 22);
-            this.btnPrint.TabIndex = 13;
+            this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "打  印";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 

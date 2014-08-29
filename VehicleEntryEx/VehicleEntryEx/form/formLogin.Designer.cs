@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,14 +54,15 @@
             this.txtUserName.MaxLength = 20;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(121, 21);
-            this.txtUserName.TabIndex = 1;
+            this.txtUserName.TabIndex = 0;
             // 
             // btnOK
             // 
+            this.btnOK.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnOK.Location = new System.Drawing.Point(40, 155);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(72, 20);
-            this.btnOK.TabIndex = 3;
+            this.btnOK.TabIndex = 2;
             this.btnOK.Text = "登录";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -71,7 +73,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(121, 21);
-            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TabIndex = 1;
             // 
             // label2
             // 
@@ -82,16 +84,18 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnCancel.Location = new System.Drawing.Point(136, 155);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(72, 20);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtUserName);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.label1);
@@ -101,6 +105,15 @@
             this.panel1.Location = new System.Drawing.Point(3, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 261);
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(24, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(207, 37);
+            this.label3.Text = "车辆入场登记管理";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // formLogin
             // 
@@ -128,5 +141,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
     }
 }

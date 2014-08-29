@@ -108,6 +108,7 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
             this.btnPrint.Location = new System.Drawing.Point(132, 231);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(95, 22);
@@ -244,7 +245,7 @@
             this.txtQuantity.MaxLength = 10;
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(64, 21);
-            this.txtQuantity.TabIndex = 11;
+            this.txtQuantity.TabIndex = 9;
             this.txtQuantity.LostFocus += new System.EventHandler(this.txtQuantity_LostFocus);
             // 
             // label9
@@ -260,7 +261,7 @@
             this.txtDeposit.MaxLength = 10;
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(62, 21);
-            this.txtDeposit.TabIndex = 9;
+            this.txtDeposit.TabIndex = 11;
             this.txtDeposit.LostFocus += new System.EventHandler(this.txtDeposit_LostFocus);
             // 
             // label10
@@ -277,7 +278,7 @@
             this.txtFees.Name = "txtFees";
             this.txtFees.ReadOnly = true;
             this.txtFees.Size = new System.Drawing.Size(62, 21);
-            this.txtFees.TabIndex = 10;
+            this.txtFees.TabIndex = 12;
             // 
             // label11
             // 
@@ -313,7 +314,7 @@
             this.cboUnit.Location = new System.Drawing.Point(54, 231);
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(64, 22);
-            this.cboUnit.TabIndex = 12;
+            this.cboUnit.TabIndex = 10;
             // 
             // label3
             // 
@@ -370,7 +371,7 @@
             this.cboDetail.Location = new System.Drawing.Point(54, 78);
             this.cboDetail.Name = "cboDetail";
             this.cboDetail.Size = new System.Drawing.Size(173, 22);
-            this.cboDetail.TabIndex = 27;
+            this.cboDetail.TabIndex = 4;
             this.cboDetail.Visible = false;
             // 
             // formKeeper
