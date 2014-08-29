@@ -18,7 +18,6 @@ namespace VehicleEntryEx
         BluetoothPrinter btp = new BluetoothPrinter();
         WebReference.EnterService _service;
         string _printModel = "";
-        DES _des = new DES();
 
         public formSale()
         {
@@ -296,12 +295,12 @@ namespace VehicleEntryEx
                 }
                 else
                 {
-                    _printModel = DefaultData.PrintModelStr;
+                    _printModel = DefaultData.SalePrintModelStr;
                 }
             }
             catch
             {
-                _printModel = DefaultData.PrintModelStr;
+                _printModel = DefaultData.SalePrintModelStr;
             }
         }
 

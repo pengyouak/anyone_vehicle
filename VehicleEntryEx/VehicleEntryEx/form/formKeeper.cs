@@ -14,7 +14,6 @@ namespace VehicleEntryEx
     public partial class formKeeper : Form
     {
         WebReference.EnterService _service;
-        DES _des = new DES();
         string _printModel = "";
         string _brand = "";
         string _origin = "";
@@ -239,11 +238,11 @@ namespace VehicleEntryEx
                 }
                 else
                 {
-                    _printModel = DefaultData.PrintModelStr1;
+                    _printModel = DefaultData.KeeperPrintModelStr;
                 }
             }
             catch {
-                _printModel = DefaultData.PrintModelStr1;
+                _printModel = DefaultData.KeeperPrintModelStr;
             }
         }
 

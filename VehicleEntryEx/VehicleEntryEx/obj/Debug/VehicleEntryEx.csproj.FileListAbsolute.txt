@@ -23,7 +23,6 @@ G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.for
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formEdit.resources
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formKeeperManage.resources
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formLogin.resources
-G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formRoleManagement.resources
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formRePrint.resources
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.formSale.resources
 G:\VehicleEntryEx-Git\VehicleEntryEx\VehicleEntryEx\obj\Debug\VehicleEntryEx.Properties.Resources.resources

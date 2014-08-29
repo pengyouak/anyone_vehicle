@@ -14,7 +14,6 @@ namespace VehicleEntryEx
     public partial class formRePrint : Form
     {
         BluetoothPrinter btp;
-        DES _des = new DES();
 
         public formRePrint()
         {

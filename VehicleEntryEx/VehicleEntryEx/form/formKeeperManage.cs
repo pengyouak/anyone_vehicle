@@ -15,7 +15,6 @@ namespace VehicleEntryEx
 {
     public partial class formKeeperManage : Form
     {
-        DES _des = new DES();
         BluetoothPrinter btp = new BluetoothPrinter();
         WebReference.EnterService _service = new VehicleEntryEx.WebReference.EnterService();
         string _printModel = "";
@@ -252,12 +251,12 @@ namespace VehicleEntryEx
                 }
                 else
                 {
-                    _printModel = DefaultData.PrintModelStr;
+                    _printModel = DefaultData.SalePrintModelStr;
                 }
             }
             catch
             {
-                _printModel = DefaultData.PrintModelStr;
+                _printModel = DefaultData.SalePrintModelStr;
             }
         }
 

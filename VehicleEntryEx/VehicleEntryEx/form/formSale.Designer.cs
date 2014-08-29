@@ -34,9 +34,16 @@
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.lblStatus = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.dtEnd = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chkDate = new System.Windows.Forms.CheckBox();
             this.btnChargeEdit = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -60,13 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.txtShopId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtEnd = new System.Windows.Forms.DateTimePicker();
-            this.dtStart = new System.Windows.Forms.DateTimePicker();
-            this.chkDate = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.lblStatus.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -99,6 +99,11 @@
             this.menuItem4.Text = "重新连接";
             this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "新建单据";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
             // menuItem6
             // 
             this.menuItem6.Text = "重打管理";
@@ -128,6 +133,58 @@
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 262);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dtStart);
+            this.panel2.Controls.Add(this.dtEnd);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Enabled = false;
+            this.panel2.Location = new System.Drawing.Point(7, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(219, 56);
+            // 
+            // dtStart
+            // 
+            this.dtStart.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtStart.Location = new System.Drawing.Point(62, 3);
+            this.dtStart.Name = "dtStart";
+            this.dtStart.Size = new System.Drawing.Size(154, 22);
+            this.dtStart.TabIndex = 65;
+            // 
+            // dtEnd
+            // 
+            this.dtEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEnd.Location = new System.Drawing.Point(62, 31);
+            this.dtEnd.Name = "dtEnd";
+            this.dtEnd.Size = new System.Drawing.Size(154, 22);
+            this.dtEnd.TabIndex = 66;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(2, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Text = "截止日期";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(2, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Text = "起始日期";
+            // 
+            // chkDate
+            // 
+            this.chkDate.Location = new System.Drawing.Point(6, 82);
+            this.chkDate.Name = "chkDate";
+            this.chkDate.Size = new System.Drawing.Size(120, 20);
+            this.chkDate.TabIndex = 69;
+            this.chkDate.Text = "使用时间筛选";
+            this.chkDate.CheckStateChanged += new System.EventHandler(this.chkDate_CheckStateChanged);
             // 
             // btnChargeEdit
             // 
@@ -287,63 +344,6 @@
             this.txtShopId.Name = "txtShopId";
             this.txtShopId.Size = new System.Drawing.Size(96, 21);
             this.txtShopId.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(2, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
-            this.label2.Text = "截止日期";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(2, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
-            this.label3.Text = "起始日期";
-            // 
-            // dtEnd
-            // 
-            this.dtEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dtEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEnd.Location = new System.Drawing.Point(62, 31);
-            this.dtEnd.Name = "dtEnd";
-            this.dtEnd.Size = new System.Drawing.Size(154, 22);
-            this.dtEnd.TabIndex = 66;
-            // 
-            // dtStart
-            // 
-            this.dtStart.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dtStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtStart.Location = new System.Drawing.Point(62, 3);
-            this.dtStart.Name = "dtStart";
-            this.dtStart.Size = new System.Drawing.Size(154, 22);
-            this.dtStart.TabIndex = 65;
-            // 
-            // chkDate
-            // 
-            this.chkDate.Location = new System.Drawing.Point(8, 25);
-            this.chkDate.Name = "chkDate";
-            this.chkDate.Size = new System.Drawing.Size(219, 20);
-            this.chkDate.TabIndex = 69;
-            this.chkDate.Text = "加入时间参数进行筛选";
-            this.chkDate.CheckStateChanged += new System.EventHandler(this.chkDate_CheckStateChanged);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dtStart);
-            this.panel2.Controls.Add(this.dtEnd);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Enabled = false;
-            this.panel2.Location = new System.Drawing.Point(7, 46);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(219, 56);
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Text = "新建单据";
-            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
             // 
             // formSale
             // 

@@ -14,6 +14,7 @@ namespace VehicleEntryEx
     public partial class formLogin : Form
     {
         WebReference.EnterService _service = new VehicleEntryEx.WebReference.EnterService();
+
         public formLogin()
         {
             InitializeComponent();
