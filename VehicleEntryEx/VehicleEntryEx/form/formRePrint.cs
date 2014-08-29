@@ -35,10 +35,10 @@ namespace VehicleEntryEx
                 string path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);
 
                 string  newPath = "";
-                if(_des.Decrypt(ConfigMethod._config.RoleName).Contains("业务员"))
-                    newPath = path + "\\SaleFailePrint\\";
-                else
+                if (ConfigMethod._config.RoleCode=="1")
                     newPath = path + "\\FailePrint\\";
+                else
+                    newPath = path + "\\SaleFailePrint\\";
                 if (!System.IO.Directory.Exists(newPath))
                 {
                     MessageBox.Show("没有可打印的文档!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
