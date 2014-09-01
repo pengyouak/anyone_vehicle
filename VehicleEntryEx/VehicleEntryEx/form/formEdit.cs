@@ -270,11 +270,11 @@ namespace VehicleEntryEx
                         MessageBox.Show("请选择单位!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                         return;
                     }
-                    if (txtDeposit.Text == string.Empty)
-                    {
-                        MessageBox.Show("请输入押金!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                        return;
-                    }
+                    //if (txtDeposit.Text == string.Empty)
+                    //{
+                    //    MessageBox.Show("请输入押金!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    //    return;
+                    //}
                     //if (txtFees.Text == string.Empty)
                     //{
                     //    MessageBox.Show("请输入应收费用!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
@@ -415,6 +415,7 @@ namespace VehicleEntryEx
                 cboDetail.Visible = false;
                 cboDetail.Items.Clear();
                 cboSubType.Items.Clear();
+                cboBrand.Text = "请选择或输入品牌";
                 cboBrand.Items.Clear();
                 if (cboType.SelectedItem == null)
                     return;
@@ -452,6 +453,7 @@ namespace VehicleEntryEx
         {
             try
             {
+                cboBrand.Text = "请选择或输入品牌";
                 cboBrand.Items.Clear();
                 cboDetail.Items.Clear();
                 if (string.IsNullOrEmpty(cboSubType.SelectedItem.ToString()))

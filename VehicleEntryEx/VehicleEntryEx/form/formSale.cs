@@ -119,9 +119,14 @@ namespace VehicleEntryEx
                 {
                     result = _service.SearchNotChargesByShopIdAndTime(txtShopId.Text.Trim(), dtStart.Value.ToString("yyyyMMdd-HH:mm:ss"), dtEnd.Value.ToString("yyyyMMdd-HH:mm:ss"));
                 }
-                else
+                else if (txtShopId.Text.Trim() == string.Empty && chkDate.Checked)
                 {
                     result = _service.SearchNotChargesByTime(dtStart.Value.ToString("yyyyMMdd-HH:mm:ss"), dtEnd.Value.ToString("yyyyMMdd-HH:mm:ss"));
+                }
+                else
+                {
+                    MessageBox.Show("查询条件有误!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    return;
                 }
                 if (!string.IsNullOrEmpty(result))
                 {

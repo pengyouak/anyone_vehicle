@@ -548,6 +548,7 @@ namespace VehicleEntryEx
                 cboDetail.Visible = false;
                 cboDetail.Items.Clear();
                 cboSub.Items.Clear();
+                cboBrand.Text = "请选择或输入品牌";
                 cboBrand.Items.Clear();
                 if (cboType.SelectedItem == null)
                     return;
@@ -586,6 +587,7 @@ namespace VehicleEntryEx
         {
             try
             {
+                cboBrand.Text = "请选择或输入品牌";
                 cboBrand.Items.Clear();
                 cboDetail.Items.Clear();
                 if (string.IsNullOrEmpty(cboSub.SelectedItem.ToString()))
@@ -812,32 +814,37 @@ namespace VehicleEntryEx
 
         private void ConnectErrorShow(bool issuccess)
         {
-            ConfigMethod._isConnected = issuccess;
-            if (!ConfigMethod._isConnected)
+            try
             {
-                if (InvokeRequired)
+                ConfigMethod._isConnected = issuccess;
+                if (!ConfigMethod._isConnected)
                 {
-                    Action a = new Action(() => { lblStatus.BackColor = Color.Red; });
-                    a.Invoke();
+                    if (InvokeRequired)
+                    {
+                        Action a = new Action(() => { lblStatus.BackColor = Color.Red; });
+                        a.Invoke();
+                    }
+                    else
+                        lblStatus.BackColor = Color.Red;
+                    if (_service != null)
+                    {
+                        _service.Abort();
+                        _service.Dispose();
+                        _service = null;
+                    }
                 }
                 else
-                    lblStatus.BackColor = Color.Red;
-                if (_service != null)
                 {
-                    _service.Abort();
-                    _service.Dispose();
-                    _service = null;
+                    if (InvokeRequired)
+                    {
+                        Action a = new Action(() => { lblStatus.BackColor = Color.Green; });
+                        a.Invoke();
+                    }
+                    else
+                        lblStatus.BackColor = Color.Green;
                 }
             }
-            else
-            {
-                if (InvokeRequired)
-                {
-                    Action a = new Action(() => { lblStatus.BackColor = Color.Green; });
-                    a.Invoke();}
-                else
-                    lblStatus.BackColor = Color.Green;
-            }
+            catch { }
         }
         
 

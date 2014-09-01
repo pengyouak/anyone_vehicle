@@ -212,7 +212,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(4, 234);
+            this.label3.Location = new System.Drawing.Point(5, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 14);
             this.label3.Text = "单位";
@@ -220,7 +220,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btnSave.Location = new System.Drawing.Point(132, 234);
+            this.btnSave.Location = new System.Drawing.Point(132, 231);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 22);
             this.btnSave.TabIndex = 16;

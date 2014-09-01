@@ -55,7 +55,7 @@ namespace VehicleEntryEx
                             }
                         default:
                             {
-                                MessageBox.Show(json["info"].ToString());
+                                MessageBox.Show(json["info"].ToString().Trim('\"'));
                                 break;
                             }
                     }
@@ -79,12 +79,14 @@ namespace VehicleEntryEx
                                 this.Hide();
                                 break;
                             }
+                        default: { break; }
                     }
                 }
                 else
                 {
                     MessageBox.Show("接口LoginCheck异常", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 }
+                this.BackColor = Color.Green;
             }
             catch (Exception ex) { 
                 ConfigMethod._isConnected = false;

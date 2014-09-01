@@ -68,7 +68,7 @@ namespace VehicleEntryEx
                 catch (Exception ex)
                 {
                     Buzz();
-                    MessageBox.Show(@"Open Bluetooth Serial Port Fail.  "+ex.Message, "Error");
+                    MessageBox.Show(@"打开蓝牙端口失败.\r\n"+ex.Message, "错误");
                     return false;
                 }
             }
@@ -77,7 +77,7 @@ namespace VehicleEntryEx
                 BTSerialPort.DiscardInBuffer();
             }
             catch (Exception ee) { 
-                MessageBox.Show(@"Bluetooth Print Error.  " + ee.Message, "Error");
+                MessageBox.Show(@"蓝牙打印失败.\r\n" + ee.Message, "错误");
                 return false;
             }
             Cursor.Current = Cursors.WaitCursor;
@@ -100,7 +100,7 @@ namespace VehicleEntryEx
             catch (Exception ex2)
             {
                 Buzz();
-                MessageBox.Show(@"Write data to Bluetooth Serial Port Fail. "+ex2.Message, "Error");
+                MessageBox.Show(@"向蓝牙端口发送数据失败.\r\n"+ex2.Message, "错误");
                 return false;
             }
 
@@ -141,24 +141,32 @@ namespace VehicleEntryEx
 
         private void Beep()
         {
-            if (beep == null)
+            try
             {
-                Type t = GetType();
-                beep = new SoundPlayer(this.GetType().Assembly.GetManifestResourceStream(t.Namespace + ".beep.wav"));
-            }
+                if (beep == null)
+                {
+                    Type t = GetType();
+                    beep = new SoundPlayer(this.GetType().Assembly.GetManifestResourceStream(t.Namespace + ".beep.wav"));
+                }
 
-            beep.Play();
+                beep.Play();
+            }
+            catch { }
         }
 
         private void Buzz()
         {
-            if (buzz == null)
+            try
             {
-                Type t = GetType();
-                buzz = new SoundPlayer(this.GetType().Assembly.GetManifestResourceStream(t.Namespace + ".buzz.wav"));                
-            }
+                if (buzz == null)
+                {
+                    Type t = GetType();
+                    buzz = new SoundPlayer(this.GetType().Assembly.GetManifestResourceStream(t.Namespace + ".buzz.wav"));
+                }
 
-            buzz.Play();
+                buzz.Play();
+            }
+            catch { }
         }
     }
 

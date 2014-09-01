@@ -210,7 +210,6 @@
             this.txtWholeWeight.Location = new System.Drawing.Point(54, 156);
             this.txtWholeWeight.MaxLength = 10;
             this.txtWholeWeight.Name = "txtWholeWeight";
-            this.txtWholeWeight.ReadOnly = true;
             this.txtWholeWeight.Size = new System.Drawing.Size(64, 21);
             this.txtWholeWeight.TabIndex = 7;
             this.txtWholeWeight.LostFocus += new System.EventHandler(this.txtWholeWeight_LostFocus);
@@ -227,7 +226,6 @@
             this.txtGrossWeight.Location = new System.Drawing.Point(54, 181);
             this.txtGrossWeight.MaxLength = 10;
             this.txtGrossWeight.Name = "txtGrossWeight";
-            this.txtGrossWeight.ReadOnly = true;
             this.txtGrossWeight.Size = new System.Drawing.Size(64, 21);
             this.txtGrossWeight.TabIndex = 8;
             this.txtGrossWeight.LostFocus += new System.EventHandler(this.txtGrossWeight_LostFocus);

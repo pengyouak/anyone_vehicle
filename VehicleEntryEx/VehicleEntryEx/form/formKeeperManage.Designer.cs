@@ -249,7 +249,7 @@
             this.Controls.Add(this.lblStatus);
             this.Menu = this.mainMenu1;
             this.Name = "formKeeperManage";
-            this.Text = "formKeeperManage";
+            this.Text = "查询修改";
             this.panel1.ResumeLayout(false);
             this.lblStatus.ResumeLayout(false);
             this.ResumeLayout(false);
