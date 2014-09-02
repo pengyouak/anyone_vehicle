@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formKeeper));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.mnuManagement = new System.Windows.Forms.MenuItem();
             this.mnuExit = new System.Windows.Forms.MenuItem();
@@ -381,12 +382,14 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblStatus);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Menu = this.mainMenu1;
             this.Name = "formKeeper";
             this.Text = "车辆入场登记";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formKeeper_KeyDown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

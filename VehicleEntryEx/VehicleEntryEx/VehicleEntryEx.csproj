@@ -19,6 +19,7 @@
     <FormFactorID>
     </FormFactorID>
     <SignAssembly>false</SignAssembly>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -147,6 +148,7 @@
   <ItemGroup>
     <Content Include="beep.wav" />
     <Content Include="buzz.wav" />
+    <Content Include="logo.ico" />
     <Content Include="myconfig.xml">
     </Content>
     <Content Include="printer.ico" />

@@ -68,7 +68,7 @@ namespace VehicleEntryEx
                 catch (Exception ex)
                 {
                     Buzz();
-                    MessageBox.Show(@"打开蓝牙端口失败.\r\n"+ex.Message, "错误");
+                    MessageBox.Show(@"打开蓝牙端口失败."+System.Environment.NewLine+ex.Message, "错误");
                     return false;
                 }
             }
@@ -76,8 +76,8 @@ namespace VehicleEntryEx
             {
                 BTSerialPort.DiscardInBuffer();
             }
-            catch (Exception ee) { 
-                MessageBox.Show(@"蓝牙打印失败.\r\n" + ee.Message, "错误");
+            catch (Exception ee) {
+                MessageBox.Show(@"蓝牙打印失败." + System.Environment.NewLine + ee.Message, "错误");
                 return false;
             }
             Cursor.Current = Cursors.WaitCursor;
@@ -100,7 +100,7 @@ namespace VehicleEntryEx
             catch (Exception ex2)
             {
                 Buzz();
-                MessageBox.Show(@"向蓝牙端口发送数据失败.\r\n"+ex2.Message, "错误");
+                MessageBox.Show(@"向蓝牙端口发送数据失败." + System.Environment.NewLine + ex2.Message, "错误");
                 return false;
             }
 

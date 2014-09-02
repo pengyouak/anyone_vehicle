@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleEntryEx", "VehicleEntryEx\VehicleEntryEx.csproj", "{0A848159-4390-4C42-8D45-2E6498FB934F}"
 EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "VehicleEntryExCab", "VehicleEntryExCab\VehicleEntryExCab.vddproj", "{DDF11693-83B3-4028-9FAB-EBBFBB246AFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{0A848159-4390-4C42-8D45-2E6498FB934F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A848159-4390-4C42-8D45-2E6498FB934F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A848159-4390-4C42-8D45-2E6498FB934F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DDF11693-83B3-4028-9FAB-EBBFBB246AFB}.Debug|Any CPU.ActiveCfg = Debug
+		{DDF11693-83B3-4028-9FAB-EBBFBB246AFB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

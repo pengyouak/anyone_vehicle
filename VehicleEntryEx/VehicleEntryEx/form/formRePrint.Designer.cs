@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formRePrint));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.lstDocuments = new System.Windows.Forms.ListBox();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lstDocuments);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "formRePrint";
             this.Text = "重打管理";
