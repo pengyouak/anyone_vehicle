@@ -121,6 +121,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.chkDate);
             this.panel1.Controls.Add(this.btnChargeEdit);

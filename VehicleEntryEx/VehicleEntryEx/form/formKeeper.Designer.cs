@@ -159,7 +159,7 @@
             // 
             this.cboType.Location = new System.Drawing.Point(54, 52);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(64, 22);
+            this.cboType.Size = new System.Drawing.Size(76, 22);
             this.cboType.TabIndex = 2;
             this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
@@ -295,9 +295,9 @@
             // 
             // cboSub
             // 
-            this.cboSub.Location = new System.Drawing.Point(124, 52);
+            this.cboSub.Location = new System.Drawing.Point(132, 52);
             this.cboSub.Name = "cboSub";
-            this.cboSub.Size = new System.Drawing.Size(103, 22);
+            this.cboSub.Size = new System.Drawing.Size(95, 22);
             this.cboSub.TabIndex = 3;
             this.cboSub.SelectedIndexChanged += new System.EventHandler(this.cboSub_SelectedIndexChanged);
             // 

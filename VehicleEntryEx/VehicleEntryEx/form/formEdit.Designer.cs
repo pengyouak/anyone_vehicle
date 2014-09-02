@@ -247,6 +247,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.cboUnit);
             this.panel1.Controls.Add(this.cboDetail);
             this.panel1.Controls.Add(this.cboOrigin);
@@ -318,9 +319,9 @@
             // 
             // cboSubType
             // 
-            this.cboSubType.Location = new System.Drawing.Point(120, 52);
+            this.cboSubType.Location = new System.Drawing.Point(132, 52);
             this.cboSubType.Name = "cboSubType";
-            this.cboSubType.Size = new System.Drawing.Size(107, 22);
+            this.cboSubType.Size = new System.Drawing.Size(95, 22);
             this.cboSubType.TabIndex = 3;
             this.cboSubType.SelectedIndexChanged += new System.EventHandler(this.cboSubType_SelectedIndexChanged);
             // 
@@ -328,7 +329,7 @@
             // 
             this.cboType.Location = new System.Drawing.Point(54, 52);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(64, 22);
+            this.cboType.Size = new System.Drawing.Size(77, 22);
             this.cboType.TabIndex = 2;
             this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
