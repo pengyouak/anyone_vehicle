@@ -191,9 +191,9 @@
             // btnChargeEdit
             // 
             this.btnChargeEdit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btnChargeEdit.Location = new System.Drawing.Point(164, 235);
+            this.btnChargeEdit.Location = new System.Drawing.Point(163, 235);
             this.btnChargeEdit.Name = "btnChargeEdit";
-            this.btnChargeEdit.Size = new System.Drawing.Size(62, 22);
+            this.btnChargeEdit.Size = new System.Drawing.Size(63, 22);
             this.btnChargeEdit.TabIndex = 61;
             this.btnChargeEdit.Text = "编辑金额";
             this.btnChargeEdit.Click += new System.EventHandler(this.btnChargeEdit_Click);
@@ -211,7 +211,7 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.btnEdit.Location = new System.Drawing.Point(112, 235);
+            this.btnEdit.Location = new System.Drawing.Point(111, 235);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(51, 22);
             this.btnEdit.TabIndex = 57;
