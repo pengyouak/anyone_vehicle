@@ -216,6 +216,7 @@ namespace VehicleEntryEx
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            _printModel = "";
             if (lsvDataList.SelectedIndices.Count <= 0)
                 return;
             panel1.Enabled = false;

@@ -26,6 +26,7 @@ namespace VehicleEntryEx
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            _printModel = "";
             #region 输入校验
             if(txtShopId.Text==string.Empty)
             {

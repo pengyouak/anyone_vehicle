@@ -11,6 +11,7 @@ namespace VehicleEntryEx
         /// 默认打印模板
         /// </summary>
         public static string SalePrintModelStr = @"! 0 200 200 540 1
+CAN
 ENCODING GB18030
 PW 559
 TONE 0
@@ -58,6 +59,7 @@ TEXT GBUNSG24.CPF 0 20 427 备注:
 PRINT
 ";
         public static string KeeperPrintModelStr = @"! 0 200 200 540 1
+CAN
 ENCODING GB18030
 PW 559
 TONE 0

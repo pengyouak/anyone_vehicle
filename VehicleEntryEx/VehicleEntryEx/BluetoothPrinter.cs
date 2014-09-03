@@ -74,7 +74,8 @@ namespace VehicleEntryEx
             }
             try
             {
-                BTSerialPort.DiscardInBuffer();
+                BTSerialPort.DiscardInBuffer(); 
+                BTSerialPort.DiscardOutBuffer();
             }
             catch (Exception ee) {
                 MessageBox.Show(@"蓝牙打印失败." + System.Environment.NewLine + ee.Message, "错误");
@@ -91,14 +92,13 @@ namespace VehicleEntryEx
                 {
                     BTSerialPort.Write(msg, i * (int)step, (int)step);
                     Beep();
-                    System.Threading.Thread.Sleep(1000);
+                    System.Threading.Thread.Sleep(500);
                 }
-
                 if (remain != 0) BTSerialPort.Write(msg, 3 * (int)step, (int)remain);
-
             }
             catch (Exception ex2)
             {
+                BTSerialPort.Close();
                 Buzz();
                 MessageBox.Show(@"向蓝牙端口发送数据失败." + System.Environment.NewLine + ex2.Message, "错误");
                 return false;
@@ -106,6 +106,7 @@ namespace VehicleEntryEx
 
             _state = PrintState.Completed;
             Cursor.Current = Cursors.Default;
+            BTSerialPort.Close();
             return true;
         }
 

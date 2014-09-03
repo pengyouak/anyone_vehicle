@@ -175,6 +175,7 @@ namespace VehicleEntryEx
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            _printModel = "";
             if (lsvDataList.SelectedIndices.Count <= 0)
                 return;
             panel1.Enabled = false;
@@ -242,7 +243,7 @@ namespace VehicleEntryEx
             try
             {
                 string path;
-                path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName) + "\\modelSale.prn";
+                path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName) + "\\modelKeeper.prn";
 
                 if (System.IO.File.Exists(path))
                 {
@@ -254,12 +255,12 @@ namespace VehicleEntryEx
                 }
                 else
                 {
-                    _printModel = DefaultData.SalePrintModelStr;
+                    _printModel = DefaultData.KeeperPrintModelStr;
                 }
             }
             catch
             {
-                _printModel = DefaultData.SalePrintModelStr;
+                _printModel = DefaultData.KeeperPrintModelStr;
             }
         }
 
