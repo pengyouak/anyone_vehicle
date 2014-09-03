@@ -161,7 +161,7 @@ namespace VehicleEntryEx
                         //}
                         //else
                         quantity = jsonResult["data"].ToString().Replace("\"", "");
-                        MessageBox.Show("数据提交成功,开始打印." + Environment.NewLine + "批次号:" + batchID, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                        //MessageBox.Show("数据提交成功,开始打印." + Environment.NewLine + "批次号:" + batchID, "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                         ReadPrintModel();
                         SetPrintModelParams(registDate, batchID, txtShopId.Text.Trim()
                             , lblOwner.Text, txtTrafficId.Text.Trim(), tmpDetail, cboBrand.Text
@@ -172,6 +172,10 @@ namespace VehicleEntryEx
                             //打印失败
                             WritePrintData(batchID, _printModel);
                             MessageBox.Show("打印失败,请连接好蓝牙打印机后,进入重打管理重打该批次!\r\n批次号为:{0}".ToFormatString(batchID), "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                        }
+                        else
+                        {
+                            MessageBox.Show("打印成功!批次号为:{0}".ToFormatString(batchID), "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                         }
                         InitControlValue();
                     }

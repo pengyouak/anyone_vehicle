@@ -192,7 +192,10 @@ namespace VehicleEntryEx
                     WritePrintData(ticket.BatchId, _printModel);
                     MessageBox.Show("打印失败,请连接好蓝牙打印机后,进入重打管理重打该批次!\r\n批次号为:{0}".ToFormatString(ticket.BatchId), "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 }
-
+                else
+                {
+                    MessageBox.Show("打印成功!批次号为:{0}".ToFormatString(ticket.BatchId), "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                }
                 lsvDataList.Items.Remove(lsvDataList.Items[lsvDataList.SelectedIndices[0]]);
             }
             catch (Exception ex)
