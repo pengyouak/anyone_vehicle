@@ -67,6 +67,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cboDetail = new System.Windows.Forms.ComboBox();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             // mnuManagement
             // 
             this.mnuManagement.MenuItems.Add(this.mnuExit);
+            this.mnuManagement.MenuItems.Add(this.menuItem4);
             this.mnuManagement.MenuItems.Add(this.menuItem1);
             this.mnuManagement.MenuItems.Add(this.menuItem3);
             this.mnuManagement.MenuItems.Add(this.mnuReConnect);
@@ -373,6 +375,11 @@
             this.cboDetail.TabIndex = 4;
             this.cboDetail.Visible = false;
             // 
+            // menuItem4
+            // 
+            this.menuItem4.Text = "注销";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
             // formKeeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -433,6 +440,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.ComboBox cboDetail;
+        private System.Windows.Forms.MenuItem menuItem4;
     }
 }
 

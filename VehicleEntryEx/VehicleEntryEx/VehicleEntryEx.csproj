@@ -47,6 +47,8 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HandHeldProducts.Embedded.Decoding.DecodeAssembly, Version=3.701.10001.0, Culture=neutral, PublicKeyToken=61006b9cbe4bb3df, processorArchitecture=MSIL" />
+    <Reference Include="HandHeldProducts.Embedded.Decoding.SymbologyConfiguratorUserControl, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json.Compact, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -102,7 +104,9 @@
       <DependentUpon>formSale.cs</DependentUpon>
     </Compile>
     <Compile Include="config\MyConfig.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="form\formKeeper.resx">
       <DependentUpon>formKeeper.cs</DependentUpon>
@@ -138,6 +142,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Scanner.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Web References\WebReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -152,6 +157,7 @@
     <Content Include="myconfig.xml">
     </Content>
     <Content Include="printer.ico" />
+    <Content Include="success.wav" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

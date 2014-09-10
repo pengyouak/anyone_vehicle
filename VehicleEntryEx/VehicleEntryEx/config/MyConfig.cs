@@ -7,6 +7,7 @@ namespace VehicleEntryEx
     public class MyConfig
     {
         private string _ip = "115.236.0.69:8680";
+        private string _com = "8";
         private string _roleCode = "";
         private string _roleName = "";
         private string _userID = "";
@@ -20,7 +21,12 @@ namespace VehicleEntryEx
             get { return _ip; }
             set { _ip = value; }
         }
-
+        [XmlElement(ElementName = "PrintPort")]
+        public string COM
+        {
+            get { return _com; }
+            set { _com = value; }
+        }
         [XmlIgnore]
         public string RoleName
         {

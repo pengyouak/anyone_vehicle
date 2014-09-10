@@ -253,6 +253,7 @@
             this.Menu = this.mainMenu1;
             this.Name = "formKeeperManage";
             this.Text = "查询修改";
+            this.Load += new System.EventHandler(this.formKeeperManage_Load);
             this.panel1.ResumeLayout(false);
             this.lblStatus.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -7,6 +7,7 @@ namespace VehicleEntryEx
 {
     static class Program
     {
+        public static formLogin login = null;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -14,7 +15,8 @@ namespace VehicleEntryEx
         static void Main()
         {
             ConfigMethod.GetWebServiceUrl();
-            Application.Run(new formLogin());
+            login = new formLogin();
+            Application.Run(login);
         }
     }
 }

@@ -10,11 +10,15 @@ using System.Reflection;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using HandHeldProducts.Embedded.Decoding;
+using HandHeldProducts.Embedded.Hardware;
+using System.Diagnostics;
 
 namespace VehicleEntryEx
 {
     public partial class formSale : Form
     {
+        Scanner sc = new Scanner();
         BluetoothPrinter btp = new BluetoothPrinter();
         WebReference.EnterService _service;
         string _printModel = "";
@@ -22,6 +26,8 @@ namespace VehicleEntryEx
         public formSale()
         {
             InitializeComponent();
+            sc.Scaned_DoEvent += new DecodeAssembly.DecodeEventHandler(sc_Scaned_DoEvent);
+            sc.Decode_Load();
         }
 
         private void menuItem2_Click_1(object sender, EventArgs e)
@@ -64,6 +70,8 @@ namespace VehicleEntryEx
         {
             try
             {
+                dtStart.Value = dtStart.Value.Add(Convert.ToDateTime(dtStart.Value.ToString("yyyy-MM-dd 00:00:00")).Subtract(dtStart.Value));
+                dtEnd.Value = dtEnd.Value.Add(Convert.ToDateTime(dtEnd.Value.ToString("yyyy-MM-dd 23:59:59")).Subtract(dtEnd.Value));
                 _service = new WebReference.EnterService();
                 string tmp = System.Text.RegularExpressions.Regex.Match(_service.Url, @"\d+\.\d+\.\d+\.\d+:\d+").Value;
                 _service.Url = _service.Url.Replace(tmp, ConfigMethod._config.IP);
@@ -197,7 +205,7 @@ namespace VehicleEntryEx
                         }
                         if (lsvDataList.Items.Count <= 0)
                         {
-                            MessageBox.Show("没有查询到未打印的单据", "错误", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                            MessageBox.Show("没有查询到未打印的单据", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
                             txtShopId.Focus();
                         }
                     }
@@ -425,6 +433,127 @@ namespace VehicleEntryEx
         private void chkDate_CheckStateChanged(object sender, EventArgs e)
         {
             panel2.Enabled = chkDate.Checked;
+        }
+
+        private void menuItem7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtShopId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Print&&panel1.Enabled)
+            {
+                txtShopId.KeyDown -= new KeyEventHandler(this.txtShopId_KeyDown);
+                sc.Decode_KeyDown();
+            }
+        }
+
+        void sc_Scaned_DoEvent(object sender, HandHeldProducts.Embedded.Decoding.DecodeAssembly.DecodeEventArgs e)
+        {
+            try
+            {
+                panel1.Enabled = false;
+                if (e.ResultCode == DecodeAssembly.ResultCodes.Success)
+                {
+                    var decode = (DecodeAssembly)sender;
+                    sc.Success();
+                    decode.Device.SetLED(Device.LedColor.Red, 0);
+                    decode.Device.SetLED(Device.LedColor.Green, 1);
+                    if (e.Message.Length <= 4)
+                        return;
+                    string result = _service.SearchNotChargesByBatchId(e.Message);
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        var json = (JObject)JsonConvert.DeserializeObject(result);
+                        if (json["status"].ToString().Contains("true"))
+                        {
+                            var data = json["data"];
+                            foreach (var v in data)
+                            {
+                                var ticket = new Ticket();
+
+                                ticket.CreateTime = v["RegistDate"].ToString().Trim('\"');
+                                ticket.BatchId = v["BatchId"].ToString().Trim('\"');
+                                ticket.ShopId = v["ShopId"].ToString().Trim('\"');
+                                ticket.Owner = v["Owner"].ToString().Trim('\"');
+                                ticket.TrafficId = v["TrafficId"].ToString().Trim('\"');
+                                ticket.ParentClass = v["ParentClass"].ToString().Trim('\"');
+                                ticket.SubClass = v["SubClass"].ToString().Trim('\"');
+                                ticket.Detailed = v["Detailed"] == null ? "" : v["Detailed"].ToString().Trim('\"');
+                                ticket.Brand = v["Brand"].ToString().Trim('\"');
+                                ticket.Origin = v["Origin"].ToString().Trim('\"');
+                                ticket.WholeWeight = v["WholeWeight"] == null ? "" : v["WholeWeight"].ToString().Trim('\"');
+                                ticket.GrossWeight = v["GrossWeight"] == null ? "" : v["GrossWeight"].ToString().Trim('\"');
+                                ticket.Quantity = v["Quantity"].ToString().Trim('\"');
+                                ticket.QuantityP = v["RealQuantity"].ToString().Trim('\"');
+                                ticket.Unit = v["Unit"].ToString().Trim('\"');
+                                ticket.UnitP = "吨";
+                                ticket.Deposit = v["Deposit"] == null ? "" : v["Deposit"].ToString().Trim('\"');
+                                ticket.Fees = v["Fees"] == null ? "" : v["Fees"].ToString().Trim('\"');
+                                ticket.Charges = v["Charges"] == null ? "" : v["Charges"].ToString().Trim('\"');
+
+                                #region 添加到列表
+                                var item = new ListViewItem();
+                                item.Tag = ticket;
+                                item.SubItems.Add("RegistDate");
+                                item.SubItems[0].Text = ticket.CreateTime;
+                                item.SubItems.Add("BatchId");
+                                item.SubItems[1].Text = ticket.BatchId;
+                                item.SubItems.Add("ShopId");
+                                item.SubItems[2].Text = ticket.ShopId;
+                                item.SubItems.Add("Owner");
+                                item.SubItems[3].Text = ticket.Owner;
+                                item.SubItems.Add("TrafficId");
+                                item.SubItems[4].Text = ticket.TrafficId;
+                                item.SubItems.Add("Type");
+                                item.SubItems[5].Text = ticket.Detailed == string.Empty ? ticket.SubClass : ticket.Detailed;
+                                item.SubItems.Add("Brand");
+                                item.SubItems[6].Text = ticket.Brand;
+                                item.SubItems.Add("Origin");
+                                item.SubItems[7].Text = ticket.Origin;
+                                item.SubItems.Add("WholeWeight");
+                                item.SubItems[8].Text = ticket.WholeWeight;
+                                item.SubItems.Add("GrossWeight");
+                                item.SubItems[9].Text = ticket.GrossWeight;
+                                item.SubItems.Add("Quantity");
+                                item.SubItems[10].Text = ticket.Quantity;
+                                item.SubItems.Add("Unit");
+                                item.SubItems[11].Text = ticket.Unit;
+                                item.SubItems.Add("Deposit");
+                                item.SubItems[12].Text = ticket.Deposit;
+                                item.SubItems.Add("Fees");
+                                item.SubItems[13].Text = ticket.Fees;
+                                item.SubItems.Add("Charges");
+                                item.SubItems[14].Text = ticket.Charges;
+                                lsvDataList.Items.Add(item);
+                                lsvDataList.Refresh();
+                                #endregion
+                            }
+                            if (lsvDataList.Items.Count <= 0)
+                            {
+                                MessageBox.Show("没有查询到未打印的单据", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                                txtShopId.Focus();
+                            }
+                        }
+                        else
+                            MessageBox.Show("接口SearchNotChargesByBatchId异常", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                        MessageBox.Show("接口SearchNotChargesByBatchId调用异常", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                }
+            }
+            catch {  }
+            finally { panel1.Enabled = true; }
+        }
+
+        private void txtShopId_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Print)
+            {
+                sc.Decode_KeyUp();
+                txtShopId.KeyDown += new KeyEventHandler(this.txtShopId_KeyDown);
+            }
         }
     }
 }

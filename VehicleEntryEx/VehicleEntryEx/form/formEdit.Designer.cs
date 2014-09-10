@@ -210,6 +210,7 @@
             this.txtShopId.Name = "txtShopId";
             this.txtShopId.Size = new System.Drawing.Size(64, 21);
             this.txtShopId.TabIndex = 0;
+            this.txtShopId.LostFocus += new System.EventHandler(this.txtShopId_LostFocus);
             // 
             // label3
             // 

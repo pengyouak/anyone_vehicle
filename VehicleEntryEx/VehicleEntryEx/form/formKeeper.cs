@@ -523,6 +523,8 @@ namespace VehicleEntryEx
         private void Form1_Load(object sender, EventArgs e)
         {
             try {
+                if (ConfigMethod._config.RoleCode == "2")
+                    mnuManagement.MenuItems.Remove(menuItem4);
                 _service = new WebReference.EnterService();
                 string tmp = System.Text.RegularExpressions.Regex.Match(_service.Url, @"\d+\.\d+\.\d+\.\d+:\d+").Value;
                 _service.Url = _service.Url.Replace(tmp, ConfigMethod._config.IP);
@@ -891,6 +893,11 @@ namespace VehicleEntryEx
                 // Enter
             }
 
+        }
+
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

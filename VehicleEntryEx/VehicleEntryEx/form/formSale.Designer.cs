@@ -33,6 +33,7 @@
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem7 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
@@ -81,6 +82,7 @@
             // menuItem1
             // 
             this.menuItem1.MenuItems.Add(this.menuItem2);
+            this.menuItem1.MenuItems.Add(this.menuItem7);
             this.menuItem1.MenuItems.Add(this.menuItem3);
             this.menuItem1.MenuItems.Add(this.menuItem4);
             this.menuItem1.MenuItems.Add(this.menuItem5);
@@ -90,6 +92,11 @@
             // 
             this.menuItem2.Text = "退出";
             this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click_1);
+            // 
+            // menuItem7
+            // 
+            this.menuItem7.Text = "注销";
+            this.menuItem7.Click += new System.EventHandler(this.menuItem7_Click);
             // 
             // menuItem3
             // 
@@ -155,6 +162,8 @@
             this.dtStart.Name = "dtStart";
             this.dtStart.Size = new System.Drawing.Size(154, 22);
             this.dtStart.TabIndex = 65;
+            this.dtStart.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.dtStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // dtEnd
             // 
@@ -164,6 +173,8 @@
             this.dtEnd.Name = "dtEnd";
             this.dtEnd.Size = new System.Drawing.Size(154, 22);
             this.dtEnd.TabIndex = 66;
+            this.dtEnd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.dtEnd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // label2
             // 
@@ -187,6 +198,8 @@
             this.chkDate.TabIndex = 69;
             this.chkDate.Text = "使用时间筛选";
             this.chkDate.CheckStateChanged += new System.EventHandler(this.chkDate_CheckStateChanged);
+            this.chkDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.chkDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // btnChargeEdit
             // 
@@ -197,6 +210,8 @@
             this.btnChargeEdit.TabIndex = 61;
             this.btnChargeEdit.Text = "编辑金额";
             this.btnChargeEdit.Click += new System.EventHandler(this.btnChargeEdit_Click);
+            this.btnChargeEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.btnChargeEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // btnDel
             // 
@@ -207,6 +222,8 @@
             this.btnDel.TabIndex = 59;
             this.btnDel.Text = "删  除";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.btnDel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.btnDel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // btnEdit
             // 
@@ -217,6 +234,8 @@
             this.btnEdit.TabIndex = 57;
             this.btnEdit.Text = "编  辑";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.btnEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // lsvDataList
             // 
@@ -241,6 +260,8 @@
             this.lsvDataList.Size = new System.Drawing.Size(219, 126);
             this.lsvDataList.TabIndex = 47;
             this.lsvDataList.View = System.Windows.Forms.View.Details;
+            this.lsvDataList.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.lsvDataList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // columnHeader1
             // 
@@ -326,6 +347,8 @@
             this.btnSearch.TabIndex = 46;
             this.btnSearch.Text = "查询";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.btnSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // label1
             // 
@@ -343,6 +366,8 @@
             this.btnPrint.TabIndex = 13;
             this.btnPrint.Text = "打  印";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnPrint.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.btnPrint.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             // 
             // txtShopId
             // 
@@ -351,6 +376,8 @@
             this.txtShopId.Name = "txtShopId";
             this.txtShopId.Size = new System.Drawing.Size(96, 21);
             this.txtShopId.TabIndex = 0;
+            this.txtShopId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
+            this.txtShopId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
             // 
             // formSale
             // 
@@ -365,6 +392,8 @@
             this.Name = "formSale";
             this.Text = "车辆入场登记";
             this.Load += new System.EventHandler(this.formSale_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShopId_KeyDown);
             this.lblStatus.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -411,5 +440,6 @@
         private System.Windows.Forms.CheckBox chkDate;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuItem7;
     }
 }

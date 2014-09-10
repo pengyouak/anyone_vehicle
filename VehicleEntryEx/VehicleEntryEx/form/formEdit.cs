@@ -586,5 +586,40 @@ namespace VehicleEntryEx
                 txtFees.Focus();
             }
         }
+
+        private void txtShopId_LostFocus(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtShopId.Text))
+                    return;
+                if (!ConfigMethod._isConnected)
+                    return;
+                string owner = _service.SearchOwner(txtShopId.Text.Trim());
+                if (!string.IsNullOrEmpty(owner))
+                {
+                    var json = (JObject)JsonConvert.DeserializeObject(owner);
+                    if (json["status"].ToString().Contains("true"))
+                    {
+                        if (json["data"] != null && json["data"].ToString().Trim('\"') != string.Empty)
+                            lblOwner.Text = json["data"].ToString().Trim('\"');
+                        else
+                        {
+                            MessageBox.Show("该门店号不存在!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                            txtShopId.Focus();
+                        }
+                    }
+                    else
+                        MessageBox.Show("接口SearchOwner异常", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                }
+                else
+                    MessageBox.Show("接口SearchOwner调用异常", "提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                ConnectErrorShow(false);
+            }
+        }
     }
 }

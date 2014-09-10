@@ -118,7 +118,13 @@ namespace VehicleEntryEx
             BTSerialPort.Parity = System.IO.Ports.Parity.None;
             BTSerialPort.StopBits = System.IO.Ports.StopBits.One;
             BTSerialPort.DataBits = 8;
-            BTSerialPort.PortName = "COM8";
+            try {
+                BTSerialPort.PortName = "COM{0}".ToFormatString(ConfigMethod._config.COM);
+            }
+            catch
+            {
+                BTSerialPort.PortName = "COM8";
+            }
             //RegistryKey key = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Bluetooth\\printui\\device");
             //BTSerialPort.PortName = key.GetValue("port").ToString();
             BTSerialPort.Open();

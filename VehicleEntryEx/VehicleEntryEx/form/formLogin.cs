@@ -20,6 +20,11 @@ namespace VehicleEntryEx
             InitializeComponent();
         }
 
+        public void Init()
+        {
+            txtUserName.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+        }
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (txtUserName.Text.Trim() == string.Empty || txtPassword.Text.Trim() == string.Empty)
@@ -67,16 +72,20 @@ namespace VehicleEntryEx
                             }
                         case "1"://门卫
                             {
+                                this.txtPassword.Text = string.Empty;
+                                this.txtUserName.Text = string.Empty;
                                 var keeper = new formKeeper();
-                                keeper.Show();
-                                this.Hide();
+                                keeper.ShowDialog();
+                                //this.Hide();
                                 break;
                             }
                         case "2"://业务员
                             {
+                                this.txtPassword.Text = string.Empty;
+                                this.txtUserName.Text = string.Empty;
                                 var sale = new formSale();
-                                sale.Show();
-                                this.Hide();
+                                sale.ShowDialog();
+                                //this.Hide();
                                 break;
                             }
                         default: { break; }

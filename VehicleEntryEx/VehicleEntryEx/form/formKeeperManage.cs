@@ -314,5 +314,11 @@ namespace VehicleEntryEx
                 catch (Exception ex) { MessageBox.Show(ex.Message); ConnectErrorShow(false); }
             }
         }
+
+        private void formKeeperManage_Load(object sender, EventArgs e)
+        {
+            dtStart.Value = dtStart.Value.Add(Convert.ToDateTime(dtStart.Value.ToString("yyyy-MM-dd 00:00:00")).Subtract(dtStart.Value));
+            dtEnd.Value = dtEnd.Value.Add(Convert.ToDateTime(dtEnd.Value.ToString("yyyy-MM-dd 23:59:59")).Subtract(dtEnd.Value));
+        }
     }
 }
