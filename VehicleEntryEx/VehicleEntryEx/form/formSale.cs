@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,7 +8,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using HandHeldProducts.Embedded.Decoding;
 using HandHeldProducts.Embedded.Hardware;
-using System.Diagnostics;
 
 namespace VehicleEntryEx
 {
@@ -454,6 +449,7 @@ namespace VehicleEntryEx
             try
             {
                 panel1.Enabled = false;
+                lsvDataList.Items.Clear();
                 if (e.ResultCode == DecodeAssembly.ResultCodes.Success)
                 {
                     var decode = (DecodeAssembly)sender;

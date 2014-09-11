@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
 using HandHeldProducts.Embedded.Decoding;
 using HandHeldProducts.Embedded.Hardware;
-using HandHeldProducts.Embedded.Utility;
-using HandHeldProducts.SmartDevice.Component;
+//using HandHeldProducts.SmartDevice.Component;
 using System.Windows.Forms;
 using System.Media;
 
