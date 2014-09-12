@@ -446,13 +446,14 @@ namespace VehicleEntryEx
 
         void sc_Scaned_DoEvent(object sender, HandHeldProducts.Embedded.Decoding.DecodeAssembly.DecodeEventArgs e)
         {
+            var decode = (DecodeAssembly)sender;
             try
             {
                 panel1.Enabled = false;
                 lsvDataList.Items.Clear();
                 if (e.ResultCode == DecodeAssembly.ResultCodes.Success)
                 {
-                    var decode = (DecodeAssembly)sender;
+                    
                     sc.Success();
                     decode.Device.SetLED(Device.LedColor.Red, 0);
                     decode.Device.SetLED(Device.LedColor.Green, 1);
@@ -540,7 +541,10 @@ namespace VehicleEntryEx
                 }
             }
             catch {  }
-            finally { panel1.Enabled = true; }
+            finally { panel1.Enabled = true;
+            decode.Device.SetLED(Device.LedColor.Red, 0);
+            decode.Device.SetLED(Device.LedColor.Green, 0);
+            }
         }
 
         private void txtShopId_KeyUp(object sender, KeyEventArgs e)
