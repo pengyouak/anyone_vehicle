@@ -183,8 +183,13 @@ namespace VehicleEntryEx
             {
                 var ticket = (Ticket)lsvDataList.Items[lsvDataList.SelectedIndices[0]].Tag;
                 ReadPrintModel();
+                string tmpType = "";
+                if (ticket.Detailed != string.Empty)
+                    tmpType = ticket.Detailed;
+                else
+                    tmpType = ticket.SubClass;
                 SetPrintModelParams(ticket.CreateTime, ticket.BatchId, ticket.ShopId, ticket.Owner
-                    , ticket.TrafficId, ticket.ParentClass, ticket.Brand, ticket.Origin, ticket.WholeWeight
+                    , ticket.TrafficId, tmpType, ticket.Brand, ticket.Origin, ticket.WholeWeight
                     , ticket.GrossWeight, ticket.QuantityP, ticket.UnitP, ticket.Deposit, ticket.Fees, ticket.Charges);
 
                 if (!btp.Print(_printModel))

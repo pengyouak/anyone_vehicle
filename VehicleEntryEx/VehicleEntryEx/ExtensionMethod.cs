@@ -17,20 +17,20 @@ namespace VehicleEntryEx
         /// <returns></returns>
         public static bool IsDoubleValue(this string str)
         {
-            if (str.Length == System.Text.RegularExpressions.Regex.Match(str, "\\d+\\.\\d+|\\d+").Value.Length)
+            if (str.Length == System.Text.RegularExpressions.Regex.Match(str, "[1-9]\\d*\\.\\d+|0\\.0*[1-9]+|[1-9]\\d*").Value.Length)
                 return true;
             else
                 return false;
         }
 
-        /// <summary>
+       /// <summary>
         /// 检查是否是整型的数据
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
         public static bool IsIntegerValue(this string str)
         {
-            if (str.Length == System.Text.RegularExpressions.Regex.Match(str, "\\d+").Value.Length)
+            if (str.Length == System.Text.RegularExpressions.Regex.Match(str, "[1-9]\\d*|0").Value.Length)
                 return true;
             else
                 return false;
