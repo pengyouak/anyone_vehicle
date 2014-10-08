@@ -284,6 +284,8 @@ namespace VehicleEntryEx
                     ThreadCheckField();
                     #endregion
 
+                    _ticket.ShopId = txtShopId.Text.Trim();
+                    _ticket.Owner = lblOwner.Text;
                     _ticket.Quantity = txtQuantity.Text.Trim();
                     _ticket.Charges = txtCharges.Text.Trim();
                     _ticket.Brand = cboBrand.Text;
