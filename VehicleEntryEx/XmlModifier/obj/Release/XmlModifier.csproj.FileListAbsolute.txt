@@ -1,0 +1,8 @@
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\bin\Release\XmlModifier.exe
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\bin\Release\XmlModifier.pdb
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\ResolveAssemblyReference.cache
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\XmlModifier.Form1.resources
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\XmlModifier.Properties.Resources.resources
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\XmlModifier.csproj.GenerateResource.Cache
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\XmlModifier.exe
+G:\VehicleEntryEx-Git\VehicleEntryEx\XmlModifier\obj\Release\XmlModifier.pdb
