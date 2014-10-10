@@ -6,7 +6,7 @@ namespace VehicleEntryEx
     [Serializable,XmlRoot(ElementName ="Config")]
     public class MyConfig
     {
-        private string _ip = "115.236.0.69:8680";
+        private string _ip = "http://115.236.0.69:8680/axis2/services/EnterService?wsdl";
         private string _com = "8";
         private string _roleCode = "";
         private string _roleName = "";

@@ -110,8 +110,9 @@ namespace VehicleEntryEx
             try
             {
                 _service = new WebReference.EnterService();
-                string tmp = System.Text.RegularExpressions.Regex.Match(_service.Url, @"\d+\.\d+\.\d+\.\d+:\d+").Value;
-                _service.Url = _service.Url.Replace(tmp, ConfigMethod._config.IP);
+                //string tmp = System.Text.RegularExpressions.Regex.Match(_service.Url, @"\d+\.\d+\.\d+\.\d+:\d+").Value;
+                //_service.Url = _service.Url.Replace(tmp, ConfigMethod._config.IP);
+                _service.Url = ConfigMethod._config.IP;
                 string conStr = _service.TestConnection();
                 if (conStr.Equals("A-A"))
                 {
